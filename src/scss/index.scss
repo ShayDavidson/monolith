@@ -1,6 +1,8 @@
-@import 'compass';
-
 $global-padding: 10px;
+
+@import 'compass';
+@import 'play_region';
+@import 'player';
 
 body, html {
   width: 100%;
@@ -16,25 +18,4 @@ body {
   background-size: $background-size $background-size;
 
   padding: $global-padding;
-}
-
-.play-region {
-  width: 50%;
-  height: 100%;
-  background-clip: padding-box;
-  @include box-sizing(border-box);
-
-  $play-region-padding: ($global-padding * 0.5) solid transparent;
-
-  &.left {
-    border-right: $play-region-padding;
-    background-color: red;
-    float: left;
-  }
-
-  &.right {
-    border-left: $play-region-padding;
-    background-color: #0017ff;
-    float: right;
-  }
 }

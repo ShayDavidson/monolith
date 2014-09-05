@@ -1,17 +1,20 @@
 !!! 5
-%html{:lang => 'en'}
+%html{lang: 'en'}
   %head
     %title= 'Netrunner Monolith'
 
-    %meta{:charset => 'utf-8'}
-    %link{:href => "css/index.css", :rel => "stylesheet"}
+    %meta{charset: 'utf-8'}
+    %link{href: 'css/index.css', rel: 'stylesheet'}
 
-    %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"}
-    %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"}
-    %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"}
+    %script{type: 'text/javascript', src: 'http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js'}
+    %script{type: 'text/javascript', src: 'http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'}
+    %script{type: 'text/javascript', src: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js'}
+    %script{type: 'text/javascript', src: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.1.0/backbone.marionette.min.js'}
 
 %body
   .play-region.left
   .play-region.right
 
-  %script{type: "text/javascript", src: "js/index.js"}
+  %script{id: 'player', type: 'text/template'}
+
+  %script{type: 'text/javascript', src: 'js/index.js'}

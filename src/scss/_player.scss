@@ -1,0 +1,18 @@
+.player {
+  $border-color: rgba(47, 47, 47, 0.75);
+  $border-radius: $global-padding;
+  $background-alpha: 0.075;
+
+  width: 100%;
+  height: 100%;
+  border: 1px dashed $border-color;
+  @include border-radius($border-radius);
+
+  &.corp {
+    background-color: rgba(65, 44, 232, $background-alpha);
+  }
+
+  &.runner {
+    background-color: rgba(215, 40, 40, $background-alpha);
+  }
+}
