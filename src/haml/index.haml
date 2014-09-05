@@ -4,28 +4,11 @@
     %title= 'Netrunner Monolith'
 
     %meta{:charset => 'utf-8'}
-    %meta{:name => 'viewport', :content => 'width=device-width, initial-scale=1, user-scalable=no'}
-    %meta{:name => 'description', :content => 'Listen to the current hot songs in /r/ListenToThis. New music everytime you check!'}
-    %meta{:property => 'og:image', :content => '/images/logo-share.png'}
-    %meta{:property => 'og:url', :content => 'http://www.yolistentothis.com/'}
-    %meta{:property => 'og:type', :content => 'website'}
-    %meta{:property => 'og:title', :content => 'Yo Listen to This'}
-
-    %link{:href => '/images/favicon.png', :rel => 'shortcut icon'}
     %link{:href => "css/index.css", :rel => "stylesheet"}
 
-    %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"}
+    %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"}
     %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js"}
     %script{type: "text/javascript", src: "http://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"}
-
-    %script
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','http://www.google-analytics.com/analytics.js','ga');
-
-      ga('create', 'UA-49127540-3', 'auto');
-      ga('send', 'pageview');
 
 %body
   %script{type: "text/javascript", src: "js/index.js"}
