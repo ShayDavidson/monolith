@@ -1,0 +1,8 @@
+@import 'compass';
+
+body {
+  $background-size: 200px;
+
+  background-image: url('/images/background.png');
+  background-size: $background-size $background-size;
+}
