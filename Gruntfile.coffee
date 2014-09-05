@@ -30,12 +30,10 @@ module.exports = (grunt) ->
     imagemin:
       dynamic:
         files: [
-          {
-            expand: true
-            cwd: 'src/images'
-            src: ['**/*.{png,jpg,gif}']
-            dest: 'public/images'
-          }
+          expand: true
+          cwd: 'src/images'
+          src: ['**/*.{png,jpg,gif}']
+          dest: 'public/images'
         ]
 
     watch:
