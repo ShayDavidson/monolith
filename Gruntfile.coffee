@@ -12,13 +12,10 @@ module.exports = (grunt) ->
 
     coffee:
       dist:
-        files: [
-          expand: true
-          cwd: 'src/coffee'
-          src: '**/*.coffee'
-          dest: 'tmp/js'
-          ext: '.js'
-        ]
+        options:
+          join: true
+        files:
+          'public/js/index.js': ['src/coffee/**/*.coffee']
 
     haml:
       dist:
@@ -30,22 +27,16 @@ module.exports = (grunt) ->
           ext: '.html'
         ]
 
-    copy:
-      main:
+    imagemin:
+      dynamic:
         files: [
-          expand: true
-          cwd: 'src/images/'
-          src: ['**']
-          dest: 'public/images'
-          filter: 'isFile'
+          {
+            expand: true
+            cwd: 'src/images'
+            src: ['**/*.{png,jpg,gif}']
+            dest: 'public/images'
+          }
         ]
-
-    concat:
-      dist:
-        src: ['tmp/**/*.js'],
-        dest: 'public/js/index.js',
-
-    clean: ['tmp']
 
     watch:
       sass:
@@ -59,15 +50,13 @@ module.exports = (grunt) ->
         tasks: ['haml']
       images:
         files: 'src/images/**'
-        tasks: ['copy']
+        tasks: ['imagemin']
 
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-haml')
-  grunt.loadNpmTasks('grunt-contrib-copy')
-  grunt.loadNpmTasks('grunt-contrib-concat')
-  grunt.loadNpmTasks('grunt-contrib-clean')
+  grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'concat', 'copy', 'clean'])
+  grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'imagemin'])
   grunt.registerTask('default', ['compile', 'watch'])
