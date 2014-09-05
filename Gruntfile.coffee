@@ -25,7 +25,7 @@ module.exports = (grunt) ->
         files: [
           expand: true
           cwd: 'src/haml'
-          src: ['**/index.haml']
+          src: ['**/*.haml']
           dest: 'public'
           ext: '.html'
         ]
@@ -68,7 +68,6 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-concat')
   grunt.loadNpmTasks('grunt-contrib-clean')
   grunt.loadNpmTasks('grunt-contrib-watch')
-
 
   grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'concat', 'copy', 'clean'])
   grunt.registerTask('default', ['compile', 'watch'])
