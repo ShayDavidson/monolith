@@ -13,11 +13,7 @@
 }
 
 .card {
-  $card-width: 100px;
-
-  width: $card-width;
-
-  position: relative;
+  width: 150px;
 
   .runner & { background-image: url('/images/cards/runner-back.jpg') }
   .corp & { background-image: url('/images/cards/corp-back.jpg') }
