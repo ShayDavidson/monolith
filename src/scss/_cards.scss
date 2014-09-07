@@ -13,13 +13,14 @@
 }
 
 .card {
+  $border-radius: 12px;
+
   width: 150px;
 
   .runner & { background-image: url('/images/cards/runner-back.jpg') }
   .corp & { background-image: url('/images/cards/corp-back.jpg') }
   background-size: cover;
 
-  $border-radius: 8px;
   @include border-radius($border-radius);
   @include box-shadow(0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25));
 
