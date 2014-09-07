@@ -3,6 +3,7 @@
   &:last-child { margin-bottom: 0; }
 
   display: flex;
+  position: relative;
   @include flex(1);
   @include box-sizing(border-box);
 
@@ -11,9 +12,11 @@
 }
 
 .card {
-  $border-radius: 12px;
+  $border-radius: 6%;
 
-  width: 100px;
+  width: auto;
+  height: 100%;
+  position: absolute;
 
   .runner & { background-image: url('/images/cards/runner-back.jpg') }
   .corp & { background-image: url('/images/cards/corp-back.jpg') }
