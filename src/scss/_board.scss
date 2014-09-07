@@ -1,8 +1,15 @@
+.board {
+  height: 100%;
+  width: 100%;
+  @include display-flex;
+  @include flex-direction(row);
+}
+
 .play-region {
-  width: 50%;
   height: 100%;
   background-clip: padding-box;
   @include box-sizing(border-box);
+  @include flex(1);
 
   $play-region-padding: ($global-padding * 0.5) solid transparent;
 
