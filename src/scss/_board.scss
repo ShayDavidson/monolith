@@ -11,15 +11,8 @@
   @include box-sizing(border-box);
   @include flex(1);
 
-  $play-region-padding: ($global-padding * 0.5) solid transparent;
-
-  &.left {
-    border-right: $play-region-padding;
-    float: left;
-  }
-
-  &.right {
-    border-left: $play-region-padding;
+  .play-region + &.right {
+    border-left: $global-padding solid transparent;
     float: right;
   }
 }
