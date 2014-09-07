@@ -1,8 +1,9 @@
 $global-padding: 10px;
 
 @import 'compass';
-@import 'play_region';
-@import 'player';
+@import 'compass/css3/flexbox';
+@import 'play_regions';
+@import 'cards';
 
 body, html {
   width: 100%;
