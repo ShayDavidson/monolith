@@ -1,0 +1,114 @@
+/* line 1, ../../src/scss/_board.scss */
+.board {
+  height: 100%;
+  width: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+}
+
+/* line 8, ../../src/scss/_board.scss */
+.play-region {
+  height: 100%;
+  background-clip: padding-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-flex: 1;
+  flex: 1;
+}
+/* line 14, ../../src/scss/_board.scss */
+.play-region + .play-region.right {
+  border-left: 10px solid transparent;
+  float: right;
+}
+
+/* line 20, ../../src/scss/_board.scss */
+.player {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(47, 47, 47, 0.75);
+  padding: 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+/* line 34, ../../src/scss/_board.scss */
+.player.corp {
+  background-color: rgba(65, 44, 232, 0.075);
+}
+/* line 38, ../../src/scss/_board.scss */
+.player.runner {
+  background-color: rgba(215, 40, 40, 0.075);
+}
+
+/* line 1, ../../src/scss/_cards.scss */
+.pile {
+  margin-bottom: 10px;
+  display: flex;
+  position: relative;
+  -webkit-flex: 1;
+  flex: 1;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 3, ../../src/scss/_cards.scss */
+.pile:last-child {
+  margin-bottom: 0;
+}
+/* line 10, ../../src/scss/_cards.scss */
+.left .pile {
+  direction: ltr;
+}
+/* line 11, ../../src/scss/_cards.scss */
+.right .pile {
+  direction: rtl;
+}
+
+/* line 14, ../../src/scss/_cards.scss */
+.card {
+  width: auto;
+  height: 100%;
+  position: absolute;
+  background-size: cover;
+  -moz-border-radius: 6%;
+  -webkit-border-radius: 6%;
+  border-radius: 6%;
+  -moz-box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25);
+}
+/* line 21, ../../src/scss/_cards.scss */
+.runner .card {
+  background-image: url("/images/cards/runner-back.jpg");
+}
+/* line 22, ../../src/scss/_cards.scss */
+.corp .card {
+  background-image: url("/images/cards/corp-back.jpg");
+}
+
+/* line 8, ../../src/scss/index.scss */
+body, html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 15, ../../src/scss/index.scss */
+body {
+  background-image: url("/images/background.png");
+  background-size: 200px 200px;
+  padding: 10px;
+}
