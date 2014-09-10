@@ -1,4 +1,10 @@
-class App.Models.PlayerModel extends Backbone.Model
+class App.Models.Player extends Backbone.Model
 
-  defaults:
-    side: null # 'corp' or 'runner'
+#  defaults:
+#    credits: null
+#    hand: null
+
+
+  grip: ->
+    @set('grip', new App.Models.Cards()) unless @has('grip')
+    @get('grip')
