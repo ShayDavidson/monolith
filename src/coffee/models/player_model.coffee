@@ -8,3 +8,11 @@ class App.Models.Player extends Backbone.Model
   grip: ->
     @set('grip', new App.Models.Cards()) unless @has('grip')
     @get('grip')
+
+  installed: ->
+    @set('installed', new App.Models.Cards()) unless @has('installed')
+    @get('installed')
+
+  heap: ->
+    @set('heap', new App.Models.Cards()) unless @has('heap')
+    @get('heap')
