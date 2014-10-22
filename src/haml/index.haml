@@ -18,20 +18,13 @@
     .play-region.left
     .play-region.right
 
-  %script{id:'runner-player-view', type: 'text/template'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
+  .zoomed-card-container
 
-  %script{id:'corp-player-view', type: 'text/template'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
-    .pile
-      %img.card{src: '/images/cards/aspect.png'}
+  %script{id: 'player-view-template', type: 'text/template'}
+    .piles
+
+  %script{id: 'pile-view-template', type: 'text/template'}
+    .cards
+
 
   %script{type: 'text/javascript', src: 'js/index.js'}
