@@ -1,1 +1,3 @@
+- Convert cards to DIVs.
+- Card spinner for preloading.
 - Cool README.
