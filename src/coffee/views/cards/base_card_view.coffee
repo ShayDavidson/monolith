@@ -4,14 +4,11 @@ class App.Views.BaseCardView extends Backbone.Marionette.ItemView
   tagName: 'img'
 
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'
-  CARD_IMG_PATH = 'http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/'
-  CARD_IMG_SUFFIX = '.png'
 
   onRender: ->
     if @model.get('faceUp')
-      @$el.attr(src: @_cardImagePath())
+      @model.preloadImage().then(=>
+        @$el.attr(src: @model.imagePath())
+      )
     else
       @$el.attr(src: ASPECT_RATIO_IMG)
-
-  _cardImagePath: ->
-    CARD_IMG_PATH + @model.get('cardId') + CARD_IMG_SUFFIX

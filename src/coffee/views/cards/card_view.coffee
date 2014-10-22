@@ -23,7 +23,6 @@ class App.Views.CardView extends App.Views.BaseCardView
 
   _startCountingTimeForZoom: ->
     return unless @model.get('faceUp')
-
     @zoomTimeoutId = setTimeout((=> @_zoomCard()), ZOOM_TIMEOUT)
 
   _stopCountingTimeForZoom: ->
