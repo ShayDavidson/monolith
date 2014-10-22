@@ -7,6 +7,7 @@ $ ->
   App.addRegions
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
+    zoomedCardRegion: '.zoomed-card-container'
 
   card1 = new App.Models.CardModel(cardId: '02009')
   card2 = new App.Models.CardModel(cardId: '03046')

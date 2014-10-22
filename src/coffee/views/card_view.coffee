@@ -46,3 +46,4 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
 
   _zoomCard: ->
     @isZooming = true
+    App.zoomedCardRegion.show(new App.Views.ZoomedCardView(model: @model))
