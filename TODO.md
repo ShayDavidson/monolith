@@ -1,2 +1,3 @@
 - Cool README.
+- Merge zoomed_card_view and card_view.
 - Loading effect when changing faceUp status.

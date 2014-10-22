@@ -15,6 +15,7 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
     'click': '_toggleFacing'
     'mousedown': '_startCountingTimeForZoom'
     'mouseup': '_stopCountingTimeForZoom'
+    'mouseout': '_stopZooming'
 
   onRender: ->
     if @model.get('faceUp')
@@ -30,7 +31,10 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
   # Actions
 
   _toggleFacing: ->
-    @model.toggleFacing() unless @isZooming
+    if @isZooming
+      @zoomedCard.hide()
+    else
+      @model.toggleFacing()
 
   # Zooming
 
@@ -46,4 +50,8 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
 
   _zoomCard: ->
     @isZooming = true
-    App.zoomedCardRegion.show(new App.Views.ZoomedCardView(model: @model))
+    @zoomedCard = new App.Views.ZoomedCardView(model: @model)
+    App.zoomedCardRegion.show(@zoomedCard)
+
+  _stopZooming: ->
+    @zoomedCard.hide() if @isZooming
