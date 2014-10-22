@@ -1,12 +1,6 @@
-class App.Views.CardView extends Backbone.Marionette.ItemView
-  template: _.template('')
-  className: 'card'
-  tagName: 'img'
+class App.Views.CardView extends App.Views.BaseCardView
 
-  ASPECT_RATIO_IMG = '/images/cards/aspect.png'
-  CARD_IMG_PATH = 'http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/'
-  CARD_IMG_SUFFIX = '.png'
-  ZOOM_TIMEOUT = 300
+  ZOOM_TIMEOUT = 150
 
   modelEvents:
     'change:faceUp': 'render'
@@ -17,22 +11,11 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
     'mouseup': '_stopCountingTimeForZoom'
     'mouseout': '_stopZooming'
 
-  onRender: ->
-    if @model.get('faceUp')
-      @$el.attr(src: @_cardImagePath())
-    else
-      @$el.attr(src: ASPECT_RATIO_IMG)
-
-  # Helpers
-
-  _cardImagePath: ->
-    CARD_IMG_PATH + @model.get('cardId') + CARD_IMG_SUFFIX
-
   # Actions
 
   _toggleFacing: ->
     if @isZooming
-      @zoomedCard.hide()
+      @_stopZooming()
     else
       @model.toggleFacing()
 
@@ -54,4 +37,6 @@ class App.Views.CardView extends Backbone.Marionette.ItemView
     App.zoomedCardRegion.show(@zoomedCard)
 
   _stopZooming: ->
-    @zoomedCard.hide() if @isZooming
+    if @isZooming
+      @zoomedCard.hide()
+      @isZooming = false
