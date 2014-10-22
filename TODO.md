@@ -1,0 +1,2 @@
+- Cool README.
+- Loading effect when changing faceUp status.
