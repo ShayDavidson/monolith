@@ -8,17 +8,25 @@ $ ->
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
 
-  card = new App.Models.CardModel()
-  cards = new App.Models.CardCollection([card])
-  noCards = new App.Models.CardCollection()
-  pile1 = new App.Models.PileModel(cards: noCards)
-  pile2 = new App.Models.PileModel(cards: cards)
-  pile3 = new App.Models.PileModel(cards: cards)
-  pile4 = new App.Models.PileModel(cards: noCards)
-  piles = new App.Models.PileCollection([pile1, pile2, pile3, pile4])
+  card1 = new App.Models.CardModel(cardId: '02009')
+  card2 = new App.Models.CardModel(cardId: '03046')
+  card3 = new App.Models.CardModel(cardId: '04030')
+  card4 = new App.Models.CardModel(cardId: '04031')
 
-  runnerModel = new App.Models.PlayerModel(side: 'runner', piles: piles)
-  corpModel = new App.Models.PlayerModel(side: 'corp', piles: piles)
+  noCards = new App.Models.CardCollection()
+  noCardsPile1 = new App.Models.PileModel(cards: noCards)
+  noCardsPile2 = new App.Models.PileModel(cards: noCards)
+
+  runnerPile1 = new App.Models.PileModel(cards: new App.Models.CardCollection([card1]))
+  runnerPile2 = new App.Models.PileModel(cards: new App.Models.CardCollection([card2]))
+  corpPile1 = new App.Models.PileModel(cards: new App.Models.CardCollection([card3]))
+  corpPile2 = new App.Models.PileModel(cards: new App.Models.CardCollection([card4]))
+
+  runnerPiles = new App.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
+  corpPiles = new App.Models.PileCollection([noCardsPile1, corpPile1, corpPile2, noCardsPile2])
+
+  runnerModel = new App.Models.PlayerModel(side: 'runner', piles: runnerPiles)
+  corpModel = new App.Models.PlayerModel(side: 'corp', piles: corpPiles)
 
   runnerView = new App.Views.PlayerView(model: runnerModel)
   corpView = new App.Views.PlayerView(model: corpModel)

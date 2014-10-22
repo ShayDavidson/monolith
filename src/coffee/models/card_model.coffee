@@ -5,3 +5,6 @@ class App.Models.CardModel extends Backbone.Model
   defaults:
     cardId: null
     faceUp: false
+
+  toggleFacing: ->
+    @set('faceUp', !@get('faceUp'))
