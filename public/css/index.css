@@ -33,24 +33,29 @@
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 34, ../../src/scss/_board.scss */
+/* line 32, ../../src/scss/_board.scss */
 .player.corp {
   background-color: rgba(65, 44, 232, 0.075);
 }
-/* line 38, ../../src/scss/_board.scss */
+/* line 36, ../../src/scss/_board.scss */
 .player.runner {
   background-color: rgba(215, 40, 40, 0.075);
 }
+/* line 40, ../../src/scss/_board.scss */
+.player .piles {
+  width: 100%;
+  height: 100%;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
 
-/* line 1, ../../src/scss/_cards.scss */
+/* line 3, ../../src/scss/_cards.scss */
 .pile {
   margin-bottom: 10px;
   display: flex;
@@ -61,20 +66,20 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-/* line 3, ../../src/scss/_cards.scss */
+/* line 5, ../../src/scss/_cards.scss */
 .pile:last-child {
   margin-bottom: 0;
 }
-/* line 10, ../../src/scss/_cards.scss */
+/* line 12, ../../src/scss/_cards.scss */
 .left .pile {
   direction: ltr;
 }
-/* line 11, ../../src/scss/_cards.scss */
+/* line 13, ../../src/scss/_cards.scss */
 .right .pile {
   direction: rtl;
 }
 
-/* line 14, ../../src/scss/_cards.scss */
+/* line 16, ../../src/scss/_cards.scss */
 .card {
   width: auto;
   height: 100%;
@@ -87,13 +92,38 @@
   -webkit-box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25);
   box-shadow: 0.5px 0.5px 1px 1px rgba(0, 0, 0, 0.25);
 }
-/* line 21, ../../src/scss/_cards.scss */
+/* line 23, ../../src/scss/_cards.scss */
 .runner .card {
   background-image: url("/images/cards/runner-back.jpg");
 }
-/* line 22, ../../src/scss/_cards.scss */
+/* line 24, ../../src/scss/_cards.scss */
 .corp .card {
   background-image: url("/images/cards/corp-back.jpg");
+}
+
+/* line 31, ../../src/scss/_cards.scss */
+.zoomed-card-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -220px;
+  margin-left: -141.2px;
+  height: 440px;
+}
+/* line 41, ../../src/scss/_cards.scss */
+.zoomed-card-container .card {
+  opacity: 1;
+  -moz-transition: opacity 0.25s ease-out;
+  -o-transition: opacity 0.25s ease-out;
+  -webkit-transition: opacity 0.25s ease-out;
+  transition: opacity 0.25s ease-out;
+  -moz-box-shadow: 0px 0px 300px 30px rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 0px 0px 300px 30px rgba(0, 0, 0, 0.9);
+  box-shadow: 0px 0px 300px 30px rgba(0, 0, 0, 0.9);
+}
+/* line 46, ../../src/scss/_cards.scss */
+.zoomed-card-container .card.hidden {
+  opacity: 0;
 }
 
 /* line 8, ../../src/scss/index.scss */
