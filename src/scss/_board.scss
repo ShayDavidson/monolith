@@ -3,6 +3,7 @@
   width: 100%;
   @include display-flex;
   @include flex-direction(row);
+  @include user-select(none);
 }
 
 .play-region {

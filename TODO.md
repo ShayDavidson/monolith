@@ -1,4 +1,4 @@
 - Card spinner for preloading.
 - Cool README.
 - Better templates.
-- Basic compatability (chrome, ff, safari, IE).
+- Basic compatability (ff - fade in zoom, IE).

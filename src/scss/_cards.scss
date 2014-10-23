@@ -16,6 +16,8 @@ $card-aspect-ratio: 0.706;
 .card {
   $border-radius: 6%;
 
+  cursor: pointer;
+  z-index: 1000;
   width: auto; // determined by code.
   height: 100%;
   position: absolute;
