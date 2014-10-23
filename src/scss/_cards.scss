@@ -16,7 +16,7 @@ $card-aspect-ratio: 0.706;
 .card {
   $border-radius: 6%;
 
-  width: auto;
+  width: auto; // determined by code.
   height: 100%;
   position: absolute;
 
@@ -37,7 +37,7 @@ $card-aspect-ratio: 0.706;
 
 .zoomed-card-container {
   $zoomed-card-height: 440px;
-  $zoomed-card-width: 400px * $card-aspect-ratio;
+  $zoomed-card-width: $zoomed-card-height * $card-aspect-ratio;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -49,6 +49,9 @@ $card-aspect-ratio: 0.706;
     opacity: 1;
     @include transition(opacity 0.25s ease-out);
     @include box-shadow(0px 0px 300px 30px rgba(0, 0, 0, 0.9));
+
+    height: $zoomed-card-height;
+    width: $zoomed-card-width;
 
     &.hidden {
       opacity: 0;

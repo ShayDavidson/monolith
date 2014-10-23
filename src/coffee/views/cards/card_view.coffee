@@ -1,6 +1,7 @@
 class App.Views.CardView extends App.Views.BaseCardView
 
   ZOOM_TIMEOUT = 150
+  CARD_ASPECT_RATIO = 0.706
 
   modelEvents:
     'change:faceUp': 'render'
@@ -10,6 +11,19 @@ class App.Views.CardView extends App.Views.BaseCardView
     'mousedown': '_startCountingTimeForZoom'
     'mouseup': '_stopCountingTimeForZoom'
     'mouseout': '_stopZooming'
+
+  # Actions
+
+  initialize: ->
+    $(window).resize(=> @_setAspectRatio())
+
+  onShow: ->
+    @_setAspectRatio()
+
+  # Helpers
+
+  _setAspectRatio: ->
+    @$el.css(width: @$el.height() * CARD_ASPECT_RATIO)
 
   # Actions
 

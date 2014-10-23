@@ -1,4 +1,4 @@
-- Convert cards to DIVs.
 - Card spinner for preloading.
 - Cool README.
 - Better templates.
+- Basic compatability (chrome, ff, safari, IE).
