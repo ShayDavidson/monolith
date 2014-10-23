@@ -20,8 +20,15 @@ $card-aspect-ratio: 0.706;
   height: 100%;
   position: absolute;
 
-  .runner & { background-image: url('/images/cards/runner-back.jpg') }
-  .corp & { background-image: url('/images/cards/corp-back.jpg') }
+  &:not(.faceUp) {
+    .runner & {
+      background-image: url('/images/cards/runner-back.jpg')
+    }
+    .corp & {
+      background-image: url('/images/cards/corp-back.jpg')
+    }
+  }
+
   background-size: cover;
 
   @include border-radius($border-radius);

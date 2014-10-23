@@ -1,14 +1,13 @@
 class App.Views.BaseCardView extends Backbone.Marionette.ItemView
-  template: _.template('')
+  template: _.template($('#card-view-template').html())
   className: 'card'
-  tagName: 'img'
 
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'
 
   onRender: ->
     if @model.get('faceUp')
       @model.preloadImage().then(=>
-        @$el.attr(src: @model.imagePath())
+        @$el.addClass('faceUp').css('background-image': "url('#{@model.imagePath()}')")
       )
     else
-      @$el.attr(src: ASPECT_RATIO_IMG)
+      @$el.removeClass('faceUp').css('background-image': '')
