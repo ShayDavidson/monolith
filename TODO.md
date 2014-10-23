@@ -1,4 +1,4 @@
-- Card spinner for preloading.
 - Cool README.
 - Better templates.
-- Basic compatability (ff - fade in zoom, IE).
+- Flip effect?
+- Firefox - fade in zoom fix.

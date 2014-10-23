@@ -2,6 +2,8 @@ $global-padding: 10px;
 
 @import 'compass';
 @import 'compass/css3/flexbox';
+@import 'compass/css3/animation';
+@import 'animations';
 @import 'board';
 @import 'cards';
 
