@@ -6,10 +6,15 @@ class App.Views.BaseCardView extends Backbone.Marionette.ItemView
 
   onRender: ->
     if @model.get('faceUp')
-      @$el.addClass('loading')
+      @_showLoadingSpinner()
       @model.preloadImage().then(=> @_onImageLoaded())
     else
       @$el.removeClass('faceUp').css('background-image': '')
+
+  _showLoadingSpinner: ->
+    setTimeout((=>
+      @$el.addClass('loading') unless @$el.hasClass('faceUp')
+    ), 100)
 
   _onImageLoaded: ->
     @$el.removeClass('loading')

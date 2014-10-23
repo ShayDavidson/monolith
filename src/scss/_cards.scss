@@ -41,8 +41,8 @@ $card-aspect-ratio: 0.706;
     content: '';
     background: url('/images/cards/spinner.png') no-repeat center;
     position: absolute;
-    width: 100%;
-    height: 100%;
+    width: 40px;
+    height: 40px;
     @include animation(spin 1s infinite linear);
   }
 }
