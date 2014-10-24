@@ -5,6 +5,7 @@ class App.Models.CardModel extends Backbone.Model
   defaults:
     cardId: null
     faceUp: false
+    known: true
 
   CARD_IMG_PATH = 'http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/'
   CARD_IMG_SUFFIX = '.png'
@@ -13,7 +14,7 @@ class App.Models.CardModel extends Backbone.Model
     @preloadImage()
 
   toggleFacing: ->
-    @set('faceUp', !@get('faceUp'))
+    @set('faceUp', !@get('faceUp')) if @get('known')
 
   imagePath: ->
     CARD_IMG_PATH + @get('cardId') + CARD_IMG_SUFFIX

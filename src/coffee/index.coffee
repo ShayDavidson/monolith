@@ -12,7 +12,7 @@ $ ->
   card1 = new App.Models.CardModel(cardId: '02009')
   card2 = new App.Models.CardModel(cardId: '03046')
   card3 = new App.Models.CardModel(cardId: '04030')
-  card4 = new App.Models.CardModel(cardId: '04031')
+  card4 = new App.Models.CardModel(cardId: '04031', known: false)
   card5 = new App.Models.CardModel(cardId: '04032')
   card6 = new App.Models.CardModel(cardId: '02010')
 
