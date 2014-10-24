@@ -1,7 +1,7 @@
 class App.Views.CardView extends App.Views.BaseCardView
 
-  ZOOM_TIMEOUT = 150
   CARD_ASPECT_RATIO = 0.706
+  ZOOM_TIMEOUT = 150
 
   modelEvents:
     'change:faceUp': 'render'
@@ -12,7 +12,7 @@ class App.Views.CardView extends App.Views.BaseCardView
     'mouseup': '_stopCountingTimeForZoom'
     'mouseout': '_stopZooming'
 
-  # Actions
+  # Marionette methods
 
   initialize: ->
     $(window).resize(=> @_setAspectRatio())

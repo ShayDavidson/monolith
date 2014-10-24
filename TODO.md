@@ -1,4 +1,7 @@
 - Cool README.
 - Better templates.
 - Flip effect?
+- Pile -> card row.
+- True piles.
+- Hands.
 - Firefox - fade in zoom fix.
