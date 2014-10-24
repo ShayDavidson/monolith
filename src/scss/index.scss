@@ -3,13 +3,14 @@ $global-padding: 10px;
 @import 'compass';
 @import 'compass/css3/flexbox';
 @import 'compass/css3/animation';
-@import 'animations';
 
-@import 'board';
-@import 'pile';
-@import 'player';
-@import 'cards';
-@import 'hand';
+@import 'mixins/animations';
+
+@import 'components/board';
+@import 'components/pile';
+@import 'components/player';
+@import 'components/cards';
+@import 'components/hand';
 
 body, html {
   width: 100%;
