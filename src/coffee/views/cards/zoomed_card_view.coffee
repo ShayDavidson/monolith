@@ -6,7 +6,7 @@ class App.Views.ZoomedCardView extends App.Views.BaseCardView
     @$el.addClass('hidden')
 
   onShow: ->
-    setTimeout((=> @$el.removeClass('hidden')), 10)
+    setTimeout((=> @$el.removeClass('hidden')), 50)
 
   hide: ->
     @$el.addClass('hidden')
