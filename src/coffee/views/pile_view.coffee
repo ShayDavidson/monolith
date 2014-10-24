@@ -1,6 +1,6 @@
 class App.Views.PileView extends Backbone.Marionette.CollectionView
   className: 'pile'
-  template: _.template($('#pile-view-template').html())
+  template: '#pile-view-template'
   childView: App.Views.CardView
 
   initialize: (options) ->

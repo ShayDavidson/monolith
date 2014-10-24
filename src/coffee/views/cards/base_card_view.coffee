@@ -1,5 +1,5 @@
 class App.Views.BaseCardView extends Backbone.Marionette.ItemView
-  template: _.template($('#card-view-template').html())
+  template: '#card-view-template'
   className: 'card'
 
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'

@@ -1,5 +1,4 @@
 - Cool README.
-- Better templates.
 - Flip effect?
 - Tokens.
 - Tooltips (unknown cards, name)

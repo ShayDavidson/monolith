@@ -3,6 +3,9 @@ window.App = new Backbone.Marionette.Application()
 App.Models = {}
 App.Views = {}
 
+Backbone.Marionette.Renderer.render = (template = '') ->
+  _.template($(template).html())
+
 $ ->
   App.addRegions
     leftPlayRegion: '.play-region.left'

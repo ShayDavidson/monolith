@@ -1,6 +1,6 @@
 class App.Views.PlayerView extends Backbone.Marionette.CompositeView
   className: 'player'
-  template: _.template($('#player-view-template').html())
+  template: '#player-view-template'
   childView: App.Views.PileView
   childViewContainer: '.piles-region'
 
