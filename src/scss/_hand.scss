@@ -1,0 +1,15 @@
+.hand {
+  position: fixed;
+  bottom: 0;
+
+  .left & { left: 0; }
+  .right & { right: 0; }
+
+  $hand-size: 10vw;
+
+  width: $hand-size;
+  height: $hand-size;
+
+  z-index: 1000;
+
+}

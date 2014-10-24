@@ -1,0 +1,12 @@
+.pile {
+  margin-bottom: $global-padding;
+  &:last-child { margin-bottom: 0; }
+
+  display: flex;
+  position: relative;
+  @include flex(1);
+  @include box-sizing(border-box);
+
+  .left & { direction: ltr; }
+  .right & { direction: rtl; }
+}

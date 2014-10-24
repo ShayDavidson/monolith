@@ -4,8 +4,12 @@ $global-padding: 10px;
 @import 'compass/css3/flexbox';
 @import 'compass/css3/animation';
 @import 'animations';
+
 @import 'board';
+@import 'pile';
+@import 'player';
 @import 'cards';
+@import 'hand';
 
 body, html {
   width: 100%;
