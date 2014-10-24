@@ -3,5 +3,4 @@
 - Flip effect?
 - Pile -> card row.
 - True piles.
-- Hands.
 - Firefox - fade in zoom fix.
