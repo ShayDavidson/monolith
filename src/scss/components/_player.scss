@@ -1,11 +1,12 @@
+$player-border-color: rgba(47, 47, 47, 0.75);
+
 .player {
-  $border-color: rgba(47, 47, 47, 0.75);
   $border-radius: $global-padding;
   $background-alpha: 0.075;
 
   width: 100%;
   height: 100%;
-  border: 1px dashed $border-color;
+  border: 1px dashed $player-border-color;
   padding: $global-padding;
   @include box-sizing(border-box);
   @include border-radius($border-radius);
@@ -23,6 +24,7 @@
   $piles-region-height: 85%;
   width: 100%;
   height: $piles-region-height;
+  border-bottom: 1px dashed $player-border-color;
 }
 
 .hand-region {
@@ -32,7 +34,7 @@
   .left & { left: 0; }
   .right & { right: 0; }
 
-  $hand-size: 15vw;
+  $hand-size: 18vh;
 
   width: $hand-size;
   height: $hand-size;
