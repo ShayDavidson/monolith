@@ -43,6 +43,7 @@ $card-aspect-ratio: 0.706;
   margin-top: -$zoomed-card-height/2;
   margin-left: -$zoomed-card-width/2;
   height: $zoomed-card-height;
+  background-color: gray;
 
   .card {
     opacity: 1;
