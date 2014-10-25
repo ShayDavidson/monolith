@@ -1,4 +1,4 @@
 - Cool README.
 - Tokens.
 - Tooltips (no for unknown cards, name)
-- Don't allow to flips card.
+- Don't allow to flips card, allow zooming on known cards.

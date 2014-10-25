@@ -35,8 +35,8 @@ $ ->
   runnerHand = new App.Models.CardCollection([card9, card6, card7, card8])
   corpHand = new App.Models.CardCollection([card10, card5])
 
-  runnerModel = new App.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand)
-  corpModel = new App.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand)
+  runnerModel = new App.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
+  corpModel = new App.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
 
   runnerView = new App.Views.PlayerView(model: runnerModel)
   corpView = new App.Views.PlayerView(model: corpModel)

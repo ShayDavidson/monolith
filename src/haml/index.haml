@@ -14,6 +14,9 @@
     %script{type: 'text/javascript', src: 'http://cdnjs.cloudflare.com/ajax/libs/backbone.marionette/2.1.0/backbone.marionette.min.js'}
 
 %body
+
+  // Structure.
+
   .board
     .play-region.left
     .play-region.right
@@ -24,7 +27,11 @@
 
   %script{id: 'player-view-template', type: 'text/template'}
     .piles-region
+    .player-info-region
     .hand-region
+
+  %script{id: 'player-info-view-template', type: 'text/template'}
+    .credits-region
 
   %script{id: 'pile-view-template', type: 'text/template'}
     .cards
