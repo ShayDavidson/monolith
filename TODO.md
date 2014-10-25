@@ -1,4 +1,4 @@
 - Cool README.
-- Flip effect?
 - Tokens.
-- Tooltips (unknown cards, name)
+- Tooltips (no for unknown cards, name)
+- Don't allow to flips card.
