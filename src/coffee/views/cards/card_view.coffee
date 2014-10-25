@@ -17,9 +17,6 @@ class App.Views.CardView extends App.Views.BaseCardView
   initialize: ->
     $(window).resize(=> @_setAspectRatio())
 
-  onShow: ->
-    @_setAspectRatio()
-
   # Helpers
 
   _setAspectRatio: ->

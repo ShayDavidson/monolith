@@ -1,3 +1,11 @@
+.piles {
+  width: 100%;
+  height: 100%;
+
+  @include display-flex;
+  @include flex-direction(column);
+}
+
 .pile {
   margin-bottom: $global-padding;
   &:last-child { margin-bottom: 0; }

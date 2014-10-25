@@ -1,11 +1,13 @@
-class App.Views.PlayerView extends Backbone.Marionette.CompositeView
+class App.Views.PlayerView extends Backbone.Marionette.LayoutView
   className: 'player'
   template: '#player-view-template'
-  childView: App.Views.PileView
-  childViewContainer: '.piles-region'
 
-  initialize: (options) ->
-    @collection = options.model.get('piles')
+  regions:
+    piles: '.piles-region'
+    hand: '.hand-region'
 
   onRender: ->
     @$el.addClass(@model.get('side'))
+
+    @piles.show(new App.Views.PilesView(collection: @model.get('piles')))
+    @hand.show(new App.Views.HandView(collection: @model.get('hand')))

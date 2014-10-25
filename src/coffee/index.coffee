@@ -39,3 +39,5 @@ $ ->
 
   App.leftPlayRegion.show(runnerView)
   App.rightPlayRegion.show(corpView)
+
+  $(window).trigger('resize') # fixes some issues with card sizes.
