@@ -15,6 +15,10 @@ $ ->
   card4 = new App.Models.CardModel(cardId: '04031')
   card5 = new App.Models.CardModel(cardId: '04032', faceUp: true)
   card6 = new App.Models.CardModel(cardId: '03047', faceUp: true)
+  card7 = new App.Models.CardModel(cardId: '03048', faceUp: true)
+  card8 = new App.Models.CardModel(cardId: '03049', faceUp: true)
+  card9 = new App.Models.CardModel(cardId: '03049', faceUp: true)
+  card10 = new App.Models.CardModel(cardId: '04033', faceUp: true)
 
   noCards = new App.Models.CardCollection()
   noCardsPile1 = new App.Models.PileModel(cards: noCards)
@@ -28,8 +32,8 @@ $ ->
   runnerPiles = new App.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
   corpPiles = new App.Models.PileCollection([noCardsPile1, corpPile1, corpPile2, noCardsPile2])
 
-  runnerHand = new App.Models.CardCollection([card1, card6])
-  corpHand = new App.Models.CardCollection([card4, card5])
+  runnerHand = new App.Models.CardCollection([card9, card6, card7, card8])
+  corpHand = new App.Models.CardCollection([card10, card5])
 
   runnerModel = new App.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand)
   corpModel = new App.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand)
