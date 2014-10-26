@@ -1,5 +1,5 @@
-class App.Views.TokensPileView extends Backbone.Marionette.CollectionView
+class Monolith.Views.TokensPileView extends Backbone.Marionette.CollectionView
   className: 'tokens-collection'
-  childView: App.Views.TokenView
+  childView: Monolith.Views.TokenView
 
   onRender: ->

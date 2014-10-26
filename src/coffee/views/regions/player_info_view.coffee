@@ -1,4 +1,4 @@
-class App.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
+class Monolith.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
   template: '#player-info-view-template'
   className: 'player-info'
 
@@ -6,4 +6,4 @@ class App.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
     credits: '.credits-region'
 
   onRender: ->
-    @credits.show(new App.Views.TokensPileView())
+    @credits.show(new Monolith.Views.TokensPileView())

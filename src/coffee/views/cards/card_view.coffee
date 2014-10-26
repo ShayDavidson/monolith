@@ -1,4 +1,4 @@
-class App.Views.CardView extends App.Views.BaseCardView
+class Monolith.Views.CardView extends Monolith.Views.BaseCardView
 
   CARD_ASPECT_RATIO = 0.706
   ZOOM_TIMEOUT = 150
@@ -43,8 +43,8 @@ class App.Views.CardView extends App.Views.BaseCardView
 
   _zoomCard: ->
     @isZooming = true
-    @zoomedCard = new App.Views.ZoomedCardView(model: @model)
-    App.zoomedCardRegion.show(@zoomedCard)
+    @zoomedCard = new Monolith.Views.ZoomedCardView(model: @model)
+    Monolith.zoomedCardRegion.show(@zoomedCard)
 
   _stopZooming: ->
     if @isZooming

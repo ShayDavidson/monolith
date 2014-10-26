@@ -1,47 +1,47 @@
-window.App = new Backbone.Marionette.Application()
+window.Monolith = new Backbone.Marionette.Application()
 
-App.Models = {}
-App.Views = {}
+Monolith.Models = {}
+Monolith.Views = {}
 
 $ ->
-  App.addRegions
+  Monolith.addRegions
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
     zoomedCardRegion: '.zoomed-card-container'
 
-  card1 = new App.Models.CardModel(cardId: '02009')
-  card2 = new App.Models.CardModel(cardId: '03046')
-  card3 = new App.Models.CardModel(cardId: '04030')
-  card4 = new App.Models.CardModel(cardId: '04031')
-  card5 = new App.Models.CardModel(cardId: '04032', faceUp: true)
-  card6 = new App.Models.CardModel(cardId: '03047', faceUp: true)
-  card7 = new App.Models.CardModel(cardId: '03048', faceUp: true)
-  card8 = new App.Models.CardModel(cardId: '03049', faceUp: true)
-  card9 = new App.Models.CardModel(cardId: '03049', faceUp: true)
-  card10 = new App.Models.CardModel(cardId: '04033', faceUp: true)
+  card1 = new Monolith.Models.CardModel(cardId: '02009')
+  card2 = new Monolith.Models.CardModel(cardId: '03046')
+  card3 = new Monolith.Models.CardModel(cardId: '04030')
+  card4 = new Monolith.Models.CardModel(cardId: '04031')
+  card5 = new Monolith.Models.CardModel(cardId: '04032', faceUp: true)
+  card6 = new Monolith.Models.CardModel(cardId: '03047', faceUp: true)
+  card7 = new Monolith.Models.CardModel(cardId: '03048', faceUp: true)
+  card8 = new Monolith.Models.CardModel(cardId: '03049', faceUp: true)
+  card9 = new Monolith.Models.CardModel(cardId: '03049', faceUp: true)
+  card10 = new Monolith.Models.CardModel(cardId: '04033', faceUp: true)
 
-  noCards = new App.Models.CardCollection()
-  noCardsPile1 = new App.Models.PileModel(cards: noCards)
-  noCardsPile2 = new App.Models.PileModel(cards: noCards)
+  noCards = new Monolith.Models.CardCollection()
+  noCardsPile1 = new Monolith.Models.PileModel(cards: noCards)
+  noCardsPile2 = new Monolith.Models.PileModel(cards: noCards)
 
-  runnerPile1 = new App.Models.PileModel(cards: new App.Models.CardCollection([card1]))
-  runnerPile2 = new App.Models.PileModel(cards: new App.Models.CardCollection([card2]))
-  corpPile1 = new App.Models.PileModel(cards: new App.Models.CardCollection([card3]))
-  corpPile2 = new App.Models.PileModel(cards: new App.Models.CardCollection([card4]))
+  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1]))
+  runnerPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card2]))
+  corpPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card3]))
+  corpPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card4]))
 
-  runnerPiles = new App.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
-  corpPiles = new App.Models.PileCollection([noCardsPile1, corpPile1, corpPile2, noCardsPile2])
+  runnerPiles = new Monolith.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
+  corpPiles = new Monolith.Models.PileCollection([noCardsPile1, corpPile1, corpPile2, noCardsPile2])
 
-  runnerHand = new App.Models.CardCollection([card9, card6, card7, card8])
-  corpHand = new App.Models.CardCollection([card10, card5])
+  runnerHand = new Monolith.Models.CardCollection([card9, card6, card7, card8])
+  corpHand = new Monolith.Models.CardCollection([card10, card5])
 
-  runnerModel = new App.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
-  corpModel = new App.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
+  runnerModel = new Monolith.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
+  corpModel = new Monolith.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
 
-  runnerView = new App.Views.PlayerView(model: runnerModel)
-  corpView = new App.Views.PlayerView(model: corpModel)
+  runnerView = new Monolith.Views.PlayerView(model: runnerModel)
+  corpView = new Monolith.Views.PlayerView(model: corpModel)
 
-  App.leftPlayRegion.show(runnerView)
-  App.rightPlayRegion.show(corpView)
+  Monolith.leftPlayRegion.show(runnerView)
+  Monolith.rightPlayRegion.show(corpView)
 
   $(window).trigger('resize') # fixes some issues with card sizes.

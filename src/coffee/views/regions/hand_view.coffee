@@ -1,6 +1,6 @@
-class App.Views.HandView extends Backbone.Marionette.CollectionView
+class Monolith.Views.HandView extends Backbone.Marionette.CollectionView
   className: 'hand'
-  childView: App.Views.CardView
+  childView: Monolith.Views.CardView
 
   ROTATION_CLASS_PREFIX = 'card-rotation'
 

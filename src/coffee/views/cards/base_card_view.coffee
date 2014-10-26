@@ -1,4 +1,4 @@
-class App.Views.BaseCardView extends Backbone.Marionette.ItemView
+class Monolith.Views.BaseCardView extends Backbone.Marionette.ItemView
   template: '#card-view-template'
   className: 'card'
 

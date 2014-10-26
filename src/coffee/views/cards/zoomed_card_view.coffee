@@ -1,4 +1,4 @@
-class App.Views.ZoomedCardView extends App.Views.BaseCardView
+class Monolith.Views.ZoomedCardView extends Monolith.Views.BaseCardView
 
   ZOOM_FADE_DURATION = 250
 

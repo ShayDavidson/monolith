@@ -1,2 +1,2 @@
-class App.Views.TokenView extends Backbone.Marionette.ItemView
+class Monolith.Views.TokenView extends Backbone.Marionette.ItemView
   className: 'token'

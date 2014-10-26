@@ -1,14 +1,14 @@
-class App.Views.PileView extends Backbone.Marionette.CollectionView
+class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
   className: 'pile'
   template: '#pile-view-template'
-  childView: App.Views.CardView
+  childView: Monolith.Views.CardView
 
   initialize: (options) ->
     @collection = options.model.get('cards')
 
 
-class App.Views.PilesView extends Backbone.Marionette.CollectionView
+class Monolith.Views.PilesView extends Backbone.Marionette.CollectionView
   className: 'piles'
-  childView: App.Views.PileView
+  childView: Monolith.Views.PileView
   childViewOptions: (pile) ->
     collection: pile.get('cards')

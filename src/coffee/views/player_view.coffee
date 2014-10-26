@@ -1,4 +1,4 @@
-class App.Views.PlayerView extends Backbone.Marionette.LayoutView
+class Monolith.Views.PlayerView extends Backbone.Marionette.LayoutView
   className: 'player'
   template: '#player-view-template'
 
@@ -10,6 +10,6 @@ class App.Views.PlayerView extends Backbone.Marionette.LayoutView
   onRender: ->
     @$el.addClass(@model.get('side'))
 
-    @piles.show(new App.Views.PilesView(collection: @model.get('piles')))
-    @playerInfo.show(new App.Views.PlayerInfoView(model: @model))
-    @hand.show(new App.Views.HandView(collection: @model.get('hand')))
+    @piles.show(new Monolith.Views.PilesView(collection: @model.get('piles')))
+    @playerInfo.show(new Monolith.Views.PlayerInfoView(model: @model))
+    @hand.show(new Monolith.Views.HandView(collection: @model.get('hand')))
