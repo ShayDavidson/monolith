@@ -3,4 +3,7 @@ class App.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
   className: 'player-info'
 
   regions:
-    credits: 'credits-region'
+    credits: '.credits-region'
+
+  onRender: ->
+    @credits.show(new App.Views.TokensPileView())
