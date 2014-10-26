@@ -8,9 +8,11 @@ $global-padding: 10px;
 
 @import 'components/board';
 @import 'components/player';
+@import 'components/info';
 @import 'components/pile';
 @import 'components/cards';
 @import 'components/hand';
+@import 'components/tokens';
 
 body, html {
   width: 100%;

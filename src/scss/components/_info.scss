@@ -1,0 +1,14 @@
+$credits-region-width: 33%;
+
+.player-info {
+  width: 100%;
+  height: 100%;
+
+  .left & { direction: rtl; }
+  .right & { direction: ltr; }
+}
+
+.credits-region {
+  width: $credits-region-width;
+  height: 100%;
+}
