@@ -4,6 +4,9 @@
 
   @include display-flex;
   @include flex-direction(column);
+
+  .left & { direction: ltr; }
+  .right & { direction: rtl; }
 }
 
 .pile {
@@ -14,7 +17,4 @@
   position: relative;
   @include flex(1);
   @include box-sizing(border-box);
-
-  .left & { direction: ltr; }
-  .right & { direction: rtl; }
 }

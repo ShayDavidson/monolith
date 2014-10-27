@@ -24,7 +24,7 @@ $ ->
   noCardsPile1 = new Monolith.Models.PileModel(cards: noCards)
   noCardsPile2 = new Monolith.Models.PileModel(cards: noCards)
 
-  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1]))
+  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1, card2, card3, card4]))
   runnerPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card2]))
   corpPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card3]))
   corpPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card4]))
