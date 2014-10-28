@@ -1,9 +1,24 @@
 class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
-  template: '#tokens-pile-view-template'
+  template: 'none'
   className: 'tokens-pile'
 
+  PLACEMENT_PERCENT_MARGINS = 15
+  HALF_TOKEN_PERCENT = 20
+  TOKEN_TEMPLATE = "<img class='token'></img>"
+  TOKENS_IMAGE_PATH = '/images/tokens/'
+  TOKENS_IMAGE_SUFFIX = '.png'
+
   onRender: ->
-    type = @options.type
-    _.times(@options.amount, ->
-      
+    @_renderTokens()
+
+  _renderTokens: ->
+    src = TOKENS_IMAGE_PATH + @options.type + TOKENS_IMAGE_SUFFIX
+    _.times(@options.amount, =>
+      tokenEl = $(TOKEN_TEMPLATE)
+      tokenEl.attr(src: src)
+      tokenEl.css(top: "#{@_randomPercentage()}%", left: "#{@_randomPercentage()}%")
+      @$el.append(tokenEl)
     )
+
+  _randomPercentage: ->
+    Math.random() * (100 - (2 * PLACEMENT_PERCENT_MARGINS)) + PLACEMENT_PERCENT_MARGINS - HALF_TOKEN_PERCENT

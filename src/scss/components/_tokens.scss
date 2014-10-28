@@ -1,4 +1,21 @@
 .tokens-pile {
   width: 100%;
   height: 100%;
+  position: relative;
+}
+
+.token {
+  $token-percent: 30%;
+  position: absolute;
+  width: $token-percent;
+  @include border-radius(25px);
+  @include box-shadow(-0.5px -0.5px 1px 1px rgba(0, 0, 0, 0.35));
+//  $random-range: 20;
+//  @for $i from 0 through $random-range {
+//    &.random-transform-#{$i} {
+//      $deg = (-$random-range / 2) + $i;
+//      @include transform(rotate(#{$deg}deg));
+//    }
+//  }
+
 }
