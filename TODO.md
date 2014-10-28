@@ -7,3 +7,4 @@
 - Tooltips (no for unknown cards, name)
 - Don't allow to flips card (+cursor:pointer), allow zooming on known cards
 - Cool cursors: http://chrisnager.github.io/cursors/
+- Mobile - Tap for card zoom and tooltips.
