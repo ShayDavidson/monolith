@@ -3,14 +3,20 @@ class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
   template: '#pile-view-template'
   childView: Monolith.Views.CardView
 
-  PILE_CARD_OFFSET = 0.25
+  PILE_CARD_OFFSET = 0.3
+  BASE_WINDOW_HEIGHT = 750
 
   initialize: (options) ->
     @collection = options.model.get('cards')
+    $(window).resize(=> @_setPileCardOffset())
 
   onShow: ->
+    @_setPileCardOffset()
+
+  _setPileCardOffset: ->
     @children.each((cardView, index) ->
-      offset = "#{index * PILE_CARD_OFFSET}px"
+      heightRatio = $(window).height() / BASE_WINDOW_HEIGHT
+      offset = "#{index * PILE_CARD_OFFSET * heightRatio}px"
       cardView.$el.css('margin-top': offset)
       if cardView.$el.parents('.left')
         cardView.$el.css('margin-left': offset)
