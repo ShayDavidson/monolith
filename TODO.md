@@ -1,4 +1,8 @@
+- 90deg cards.
+- Pile rows.
+- Trash pile (icon).
 - Cool README.
+- Order index.coffee.
 - Tokens.
 - Tooltips (no for unknown cards, name)
 - Don't allow to flips card, allow zooming on known cards.

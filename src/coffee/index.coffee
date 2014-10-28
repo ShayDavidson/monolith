@@ -4,39 +4,55 @@ Monolith.Models = {}
 Monolith.Views = {}
 
 $ ->
+
+  # Regions
+
   Monolith.addRegions
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
     zoomedCardRegion: '.zoomed-card-container'
 
-  card1 = new Monolith.Models.CardModel(cardId: '02009')
-  card2 = new Monolith.Models.CardModel(cardId: '03046')
-  card3 = new Monolith.Models.CardModel(cardId: '04030')
-  card4 = new Monolith.Models.CardModel(cardId: '04031')
-  card5 = new Monolith.Models.CardModel(cardId: '04032', faceUp: true)
-  card6 = new Monolith.Models.CardModel(cardId: '03047', faceUp: true)
-  card7 = new Monolith.Models.CardModel(cardId: '03048', faceUp: true)
-  card8 = new Monolith.Models.CardModel(cardId: '03049', faceUp: true)
-  card9 = new Monolith.Models.CardModel(cardId: '03049', faceUp: true)
-  card10 = new Monolith.Models.CardModel(cardId: '04033', faceUp: true)
+  # Cards
 
-  array = []
-  _.times(50, -> array.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false)))
+  ## Corp
+
+  corpId    = new Monolith.Models.CardModel(cardId: '06068', faceUp: true) # Blue Sun
+  corpHand1 = new Monolith.Models.CardModel(cardId: '01086', faceUp: true) # SEA Source
+  corpHand2 = new Monolith.Models.CardModel(cardId: '01110', faceUp: true) # Hedge Fund
+  corpHand3 = new Monolith.Models.CardModel(cardId: '01099', faceUp: true) # Scorched Earth
+  corpHand4 = new Monolith.Models.CardModel(cardId: '01099', faceUp: true) # Scorched Earth
+  corpHand5 = new Monolith.Models.CardModel(cardId: '01090', faceUp: true) # Tollbooth
+
+  ## Runner
+
+  runnerId    = new Monolith.Models.CardModel(cardId: '03028', faceUp: true) # Kit
+  runnerHand1 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
+  runnerHand2 = new Monolith.Models.CardModel(cardId: '02047', faceUp: true) # Test Run
+  runnerHand3 = new Monolith.Models.CardModel(cardId: '04109', faceUp: true) # Lucky Find
+  runnerHand4 = new Monolith.Models.CardModel(cardId: '01011', faceUp: true) # Mimic
+
+  # Piles
+
+  decksArray = []
+  _.times(30, -> decksArray.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false)))
 
   noCards = new Monolith.Models.CardCollection()
-  noCardsPile1 = new Monolith.Models.PileModel(cards: noCards)
-  noCardsPile2 = new Monolith.Models.PileModel(cards: noCards)
+  firstNoCardsPile = new Monolith.Models.PileModel(cards: noCards)
+  lastNoCardsPile = new Monolith.Models.PileModel(cards: noCards)
 
-  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection(array))
-  runnerPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card2]))
-  corpPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10]))
-  corpPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card4]))
+  runnerDeck = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection(decksArray))
+  corpDeck = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection(decksArray))
 
-  runnerPiles = new Monolith.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
-  corpPiles = new Monolith.Models.PileCollection([noCardsPile1, corpPile1, corpPile2, noCardsPile2])
+  runnerIdPile = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([runnerId]))
+  corpIdPile = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([corpId]))
 
-  runnerHand = new Monolith.Models.CardCollection([card9, card6, card7, card8])
-  corpHand = new Monolith.Models.CardCollection([card10, card5])
+  runnerPiles = new Monolith.Models.PileCollection([firstNoCardsPile, runnerIdPile, runnerDeck, lastNoCardsPile])
+  corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, lastNoCardsPile])
+
+  runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
+  corpHand = new Monolith.Models.CardCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
+
+  # Build board
 
   runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, credits: 2)
   corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, credits: 5)
@@ -50,5 +66,7 @@ $ ->
   else
     Monolith.rightPlayRegion.show(runnerView)
     Monolith.leftPlayRegion.show(corpView)
+
+  # Events
 
   $(window).trigger('resize') # fixes some issues with card sizes.
