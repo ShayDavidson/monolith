@@ -5,4 +5,5 @@ class Monolith.Models.PlayerModel extends Backbone.Model
     side: null # 'left' or 'right'
     pile: null
     hand: null
-    credits: null
+    credits: 0
+    badPublicity: 0

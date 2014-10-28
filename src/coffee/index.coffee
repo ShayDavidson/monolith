@@ -59,8 +59,8 @@ $ ->
 
   # Build board
 
-  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, credits: 2)
-  corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, credits: 5)
+  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, credits: 5)
+  corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, credits: 15, badPublicity: 1)
 
   runnerView = new Monolith.Views.PlayerView(model: runnerModel)
   corpView = new Monolith.Views.PlayerView(model: corpModel)
