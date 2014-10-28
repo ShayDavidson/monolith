@@ -1,2 +1,2 @@
-Backbone.Marionette.Renderer.render = (template = '') ->
+Backbone.Marionette.Renderer.render = (template) ->
   _.template($(template).html())

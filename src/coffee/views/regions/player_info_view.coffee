@@ -6,4 +6,5 @@ class Monolith.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
     credits: '.credits-region'
 
   onRender: ->
-#    @credits.show(new Monolith.Views.TokensPileView(amount: @model.get('credits'), type: 'credits'))
+    creditsModel = new Monolith.Models.TokensModel(type: 'credits', amount: @model.get('credits'))
+    @credits.show(new Monolith.Views.TokensPileView(creditsModel))
