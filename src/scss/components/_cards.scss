@@ -18,11 +18,21 @@ $card-aspect-ratio: 0.706;
     }
   }
 
+  .pile & {
+    &:first-child,  {
+      @include box-shadow(-0.5px -0.5px 1px 1px rgba(0, 0, 0, 0.35));
+    }
+
+    &:not(:first-child) {
+      @include box-shadow(-0.5px -0.5px 1px 1px rgba(0, 0, 0, 0.15));
+    }
+  }
+
   background-size: cover;
 
   @include user-select(none);
   @include border-radius($border-radius);
-  @include box-shadow(-0.5px -0.5px 1px 1px rgba(0, 0, 0, 0.35));
+
 
   &.loading:before {
     content: '';

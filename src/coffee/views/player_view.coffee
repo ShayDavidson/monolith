@@ -8,7 +8,7 @@ class Monolith.Views.PlayerView extends Backbone.Marionette.LayoutView
     hand: '.hand-region'
 
   onRender: ->
-    @$el.addClass(@model.get('side'))
+    @$el.addClass(@model.get('type'))
 
     @piles.show(new Monolith.Views.PilesView(collection: @model.get('piles')))
     @playerInfo.show(new Monolith.Views.PlayerInfoView(model: @model))

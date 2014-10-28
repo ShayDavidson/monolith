@@ -20,13 +20,16 @@ $ ->
   card9 = new Monolith.Models.CardModel(cardId: '03049', faceUp: true)
   card10 = new Monolith.Models.CardModel(cardId: '04033', faceUp: true)
 
+  array = []
+  _.times(50, -> array.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false)))
+
   noCards = new Monolith.Models.CardCollection()
   noCardsPile1 = new Monolith.Models.PileModel(cards: noCards)
   noCardsPile2 = new Monolith.Models.PileModel(cards: noCards)
 
-  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1, card2, card3, card4]))
+  runnerPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection(array))
   runnerPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card2]))
-  corpPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card3]))
+  corpPile1 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card1, card2, card3, card4, card5, card6, card7, card8, card9, card10]))
   corpPile2 = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([card4]))
 
   runnerPiles = new Monolith.Models.PileCollection([noCardsPile1, runnerPile1, runnerPile2, noCardsPile2])
@@ -35,8 +38,8 @@ $ ->
   runnerHand = new Monolith.Models.CardCollection([card9, card6, card7, card8])
   corpHand = new Monolith.Models.CardCollection([card10, card5])
 
-  runnerModel = new Monolith.Models.PlayerModel(side: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
-  corpModel = new Monolith.Models.PlayerModel(side: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
+  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
+  corpModel = new Monolith.Models.PlayerModel(type: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
 
   runnerView = new Monolith.Views.PlayerView(model: runnerModel)
   corpView = new Monolith.Views.PlayerView(model: corpModel)
