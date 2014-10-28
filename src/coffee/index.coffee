@@ -34,7 +34,7 @@ $ ->
   # Piles
 
   decksArray = []
-  _.times(30, -> decksArray.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false)))
+  _.times(30, -> decksArray.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false, known: false)))
 
   noCards = new Monolith.Models.CardCollection()
   firstNoCardsPile = new Monolith.Models.PileModel(cards: noCards)

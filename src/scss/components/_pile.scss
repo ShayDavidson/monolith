@@ -10,7 +10,9 @@
 }
 
 .pile {
-  margin-bottom: $global-padding;
+  $pile-margin: 4px;
+
+  margin-bottom: $pile-margin;
   &:last-child { margin-bottom: 0; }
 
   display: flex;
