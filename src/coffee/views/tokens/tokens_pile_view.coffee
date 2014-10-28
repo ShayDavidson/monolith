@@ -2,8 +2,9 @@ class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
   template: 'none'
   className: 'tokens-pile'
 
-  PLACEMENT_PERCENT_MARGINS = 15
+  PLACEMENT_PERCENT_MARGINS = 30
   HALF_TOKEN_PERCENT = 20
+  ROTATION_RANDOM_RANGE = 40
   TOKEN_TEMPLATE = "<img class='token'></img>"
   TOKENS_IMAGE_PATH = '/images/tokens/'
   TOKENS_IMAGE_SUFFIX = '.png'
@@ -17,6 +18,7 @@ class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
       tokenEl = $(TOKEN_TEMPLATE)
       tokenEl.attr(src: src)
       tokenEl.css(top: "#{@_randomPercentage()}%", left: "#{@_randomPercentage()}%")
+      tokenEl.addClass("random-transform-#{Math.floor(Math.random() * ROTATION_RANDOM_RANGE)}")
       @$el.append(tokenEl)
     )
 
