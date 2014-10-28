@@ -38,13 +38,17 @@ $ ->
   runnerHand = new Monolith.Models.CardCollection([card9, card6, card7, card8])
   corpHand = new Monolith.Models.CardCollection([card10, card5])
 
-  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', piles: runnerPiles, hand: runnerHand, credits: 2)
-  corpModel = new Monolith.Models.PlayerModel(type: 'corp', piles: corpPiles, hand: corpHand, credits: 5)
+  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, credits: 2)
+  corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, credits: 5)
 
   runnerView = new Monolith.Views.PlayerView(model: runnerModel)
   corpView = new Monolith.Views.PlayerView(model: corpModel)
 
-  Monolith.leftPlayRegion.show(runnerView)
-  Monolith.rightPlayRegion.show(corpView)
+  if runnerModel.get('side') == 'left'
+    Monolith.leftPlayRegion.show(runnerView)
+    Monolith.rightPlayRegion.show(corpView)
+  else
+    Monolith.rightPlayRegion.show(runnerView)
+    Monolith.leftPlayRegion.show(corpView)
 
   $(window).trigger('resize') # fixes some issues with card sizes.

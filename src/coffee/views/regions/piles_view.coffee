@@ -14,11 +14,12 @@ class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
     @_setPileCardOffset()
 
   _setPileCardOffset: ->
+    side = @options.side
     @children.each((cardView, index) ->
       heightRatio = $(window).height() / BASE_WINDOW_HEIGHT
       offset = "#{index * PILE_CARD_OFFSET * heightRatio}px"
       cardView.$el.css('margin-top': offset)
-      if cardView.$el.parents('.left')
+      if side == 'left'
         cardView.$el.css('margin-left': offset)
       else
         cardView.$el.css('margin-right': offset)
@@ -30,6 +31,7 @@ class Monolith.Views.PilesView extends Backbone.Marionette.CollectionView
   childView: Monolith.Views.PileView
   childViewOptions: (pile) ->
     collection: pile.get('cards')
+    side: @options.side
 
   BASE_Z_INDEX = 2000
 
