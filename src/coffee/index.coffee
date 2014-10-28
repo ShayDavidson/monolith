@@ -28,10 +28,11 @@ $ ->
   ## Runner
 
   runnerId    = new Monolith.Models.CardModel(cardId: '03028', faceUp: true) # Kit
-  runnerHand1 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
+  runnerHand1 = new Monolith.Models.CardModel(cardId: '04109', faceUp: true) # Lucky Find
   runnerHand2 = new Monolith.Models.CardModel(cardId: '02047', faceUp: true) # Test Run
-  runnerHand3 = new Monolith.Models.CardModel(cardId: '04109', faceUp: true) # Lucky Find
-  runnerHand4 = new Monolith.Models.CardModel(cardId: '04047', faceUp: true) # Torch
+  runnerHand3 = new Monolith.Models.CardModel(cardId: '04047', faceUp: true) # Torch
+  runnerHand4 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
+  runnerHand5 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
 
   # Piles
 
@@ -53,7 +54,7 @@ $ ->
   runnerPiles = new Monolith.Models.PileCollection([firstNoCardsPile, runnerIdPile, runnerDeck, lastNoCardsPile])
   corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, corpTrash])
 
-  runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
+  runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4, runnerHand5])
   corpHand = new Monolith.Models.CardCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
 
   # Build board
