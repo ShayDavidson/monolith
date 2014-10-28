@@ -10,13 +10,17 @@
 }
 
 .pile {
-  $pile-margin: 4px;
+  $pile-vertical-margin: 4px;
+  $pile-initial-horizontal-margin: 18px;
 
-  margin-bottom: $pile-margin;
+  margin-bottom: $pile-vertical-margin;
   &:last-child { margin-bottom: 0; }
 
   display: flex;
   position: relative;
   @include flex(1);
   @include box-sizing(border-box);
+
+  .left & { margin-left: $pile-initial-horizontal-margin; }
+  .right & { margin-right: $pile-initial-horizontal-margin; }
 }

@@ -11,7 +11,8 @@ class Monolith.Models.CardModel extends Backbone.Model
   CARD_IMG_SUFFIX = '.png'
 
   initialize: ->
-    @preloadImage()
+    @preloadImage() if @get('cardId')
+    @_determineDefaults()
 
   toggleFacing: ->
     @set('faceUp', !@get('faceUp')) if @get('known')
@@ -25,6 +26,10 @@ class Monolith.Models.CardModel extends Backbone.Model
     image.src = @imagePath()
     image.addEventListener('load', dfr.resolve)
     dfr.promise()
+
+  _determineDefaults: ->
+    @set(known: false) unless @get('cardId')
+    @set(faceUp: false) unless @get('known')
 
 
 

@@ -16,12 +16,14 @@ $ ->
 
   ## Corp
 
-  corpId    = new Monolith.Models.CardModel(cardId: '06068', faceUp: true) # Blue Sun
+  corpId    = new Monolith.Models.CardModel(cardId: '04097', faceUp: true) # GRNDL
   corpHand1 = new Monolith.Models.CardModel(cardId: '01086', faceUp: true) # SEA Source
   corpHand2 = new Monolith.Models.CardModel(cardId: '01110', faceUp: true) # Hedge Fund
   corpHand3 = new Monolith.Models.CardModel(cardId: '01099', faceUp: true) # Scorched Earth
   corpHand4 = new Monolith.Models.CardModel(cardId: '01099', faceUp: true) # Scorched Earth
   corpHand5 = new Monolith.Models.CardModel(cardId: '01090', faceUp: true) # Tollbooth
+
+  corpTrash1 = new Monolith.Models.CardModel(cardId: '04040', faceUp: true) # Restructure
 
   ## Runner
 
@@ -34,7 +36,7 @@ $ ->
   # Piles
 
   decksArray = []
-  _.times(30, -> decksArray.push(new Monolith.Models.CardModel(cardId: '02009', faceUp: false, known: false)))
+  _.times(30, -> decksArray.push(new Monolith.Models.CardModel()))
 
   noCards = new Monolith.Models.CardCollection()
   firstNoCardsPile = new Monolith.Models.PileModel(cards: noCards)
@@ -46,8 +48,10 @@ $ ->
   runnerIdPile = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([runnerId]))
   corpIdPile = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([corpId]))
 
+  corpTrash = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([corpTrash1]))
+
   runnerPiles = new Monolith.Models.PileCollection([firstNoCardsPile, runnerIdPile, runnerDeck, lastNoCardsPile])
-  corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, lastNoCardsPile])
+  corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, corpTrash])
 
   runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
   corpHand = new Monolith.Models.CardCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])

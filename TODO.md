@@ -1,8 +1,9 @@
-- 90deg cards.
-- Pile rows.
-- Trash pile (icon).
-- Cool README.
-- Order index.coffee.
-- Tokens.
+- 90deg cards
+- Pile rows
+- Trash pile (icon)
+- Cool README
+- Order index.coffee
+- Tokens
 - Tooltips (no for unknown cards, name)
-- Don't allow to flips card, allow zooming on known cards.
+- Don't allow to flips card (+cursor:pointer), allow zooming on known cards
+- Cool cursors: http://chrisnager.github.io/cursors/
