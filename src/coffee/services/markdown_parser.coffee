@@ -1,4 +1,4 @@
-class App.Services.MarkdownParser
+class App.Services.MarkdownParser2
   TAB_TO_SPACES = '  '
 
   @parse: (input)->

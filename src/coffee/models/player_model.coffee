@@ -4,6 +4,8 @@ class App.Models.Player extends Backbone.Model
 #    credits: null
 #    hand: null
 
+  setIdentity: (identity) ->
+    @set('identity', identity)
 
   grip: ->
     @set('grip', new App.Models.Cards()) unless @has('grip')

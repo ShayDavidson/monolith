@@ -3,6 +3,7 @@ window.App = new Backbone.Marionette.Application()
 App.Models = {}
 App.Views = {}
 App.Services = {}
+App.Markdown = {}
 
 $ ->
 #  App.addRegions

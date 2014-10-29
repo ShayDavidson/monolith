@@ -19,6 +19,6 @@ class App.Views.MarkdownView extends Marionette.ItemView
   updateModel: ->
     console.log(".")
     text = @ui.input.val()
-    game = App.Services.MarkdownParser.parse(text)
+    game = App.Markdown.MarkdownParser.parse(text)
     @model.set(game.attributes)
     @render()

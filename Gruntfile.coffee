@@ -27,14 +27,14 @@ module.exports = (grunt) ->
           ext: '.html'
         ]
 
-    imagemin:
-      dynamic:
-        files: [
-          expand: true
-          cwd: 'src/images'
-          src: ['**/*.{png,jpg,gif}']
-          dest: 'public/images'
-        ]
+    #imagemin:
+      #dynamic:
+        #files: [
+          #expand: true
+          #cwd: 'src/images'
+          #src: ['**/*.{png,jpg,gif}']
+          #dest: 'public/images'
+        #]
 
     watch:
       sass:
@@ -48,13 +48,13 @@ module.exports = (grunt) ->
         tasks: ['haml']
       images:
         files: 'src/images/**'
-        tasks: ['imagemin']
+        #tasks: ['imagemin']
 
   grunt.loadNpmTasks('grunt-contrib-compass')
   grunt.loadNpmTasks('grunt-contrib-coffee')
   grunt.loadNpmTasks('grunt-contrib-haml')
-  grunt.loadNpmTasks('grunt-contrib-imagemin')
+  #grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'imagemin'])
+  grunt.registerTask('compile', ['compass', 'coffee', 'haml'])
   grunt.registerTask('default', ['compile', 'watch'])
