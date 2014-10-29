@@ -1,4 +1,4 @@
-- Refactor tokens.
+- Refactor tokens (proper collection).
 - 90deg cards (ICE) & Pile rows
 - Trash pile (icon)
 - Cool README

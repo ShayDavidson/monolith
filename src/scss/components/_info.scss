@@ -1,8 +1,11 @@
+$player-info-height: 60%;
 $credits-region-width: 20%;
 
 .player-info {
   width: 100%;
-  height: 100%;
+  height: $player-info-height;
+  position: relative;
+  top: 100% - $player-info-height;
 
   .left & { direction: rtl; }
   .right & { direction: ltr; }

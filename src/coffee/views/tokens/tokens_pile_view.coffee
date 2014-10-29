@@ -3,8 +3,8 @@ class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
   className: 'tokens-pile'
 
   PLACEMENT_PERCENT_MARGINS = 30
-  HALF_TOKEN_PERCENT = 20
   ROTATION_RANDOM_RANGE = 40
+  HALF_TOKEN_PERCENT = 15
   TOKEN_TEMPLATE = "<img class='token'></img>"
   TOKENS_IMAGE_PATH = '/images/tokens/'
   TOKENS_IMAGE_SUFFIX = '.png'
