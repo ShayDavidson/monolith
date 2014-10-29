@@ -7,3 +7,4 @@ class Monolith.Models.PlayerModel extends Backbone.Model
     hand: null
     credits: 0
     badPublicity: 0
+    tags: 0

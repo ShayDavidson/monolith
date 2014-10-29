@@ -5,12 +5,11 @@
 }
 
 .token {
-  $token-percent: 30%;
+  $token-percent: 40%;
   position: absolute;
-  width: $token-percent;
-  @include border-radius(25px);
-  @include box-shadow(-1px -1px 1px 1px rgba(0, 0, 0, 0.5));
+  height: $token-percent;
 
+  @include box-shadow(-1px -1px 1px 1px rgba(0, 0, 0, 0.5));
 
   $random-range: 40;
   @for $i from 0 through $random-range {
@@ -18,6 +17,14 @@
       $deg: (-$random-range / 2) + ($i * 2);
       @include transform(rotate(#{$deg}deg));
     }
+  }
+
+  &.credit {
+    @include border-radius(25px);
+  }
+
+  &.tag, &.bad-publicity {
+    @include border-radius(5px);
   }
 
 }

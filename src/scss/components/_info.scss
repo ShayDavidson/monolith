@@ -1,5 +1,6 @@
 $player-info-height: 60%;
 $credits-region-width: 20%;
+$tags-bp-region-width: 30%;
 
 .player-info {
   width: 100%;
@@ -14,4 +15,13 @@ $credits-region-width: 20%;
 .credits-region {
   width: $credits-region-width;
   height: 100%;
+}
+
+.tags-bp-region {
+  width: $tags-bp-region-width;
+  height: 100%;
+}
+
+.info-region {
+  @include inline-block();
 }
