@@ -1,0 +1,49 @@
+$player-border-color: rgba(47, 47, 47, 0.75);
+$piles-region-height: 80%;
+
+.player {
+  $border-radius: $global-padding;
+  $background-alpha: 0.075;
+
+  width: 100%;
+  height: 100%;
+  border: 1px dashed $player-border-color;
+  padding: $global-padding;
+  @include box-sizing(border-box);
+  @include border-radius($border-radius);
+
+  &.corp {
+    background-color: rgba(65, 44, 232, $background-alpha);
+  }
+
+  &.runner {
+    background-color: rgba(215, 40, 40, $background-alpha);
+  }
+}
+
+.piles-region {
+  width: 100%;
+  height: $piles-region-height;
+}
+
+.hand-region {
+  position: fixed;
+  bottom: 0;
+
+  .left & { left: 0; }
+  .right & { right: 0; }
+
+  $hand-size: 20vh;
+
+  width: $hand-size;
+  height: $hand-size;
+
+  z-index: 1000;
+}
+
+.player-info-region {
+  margin-top: $global-padding;
+  width: 100%;
+  height: calc(#{100% - $piles-region-height} - #{$global-padding});
+  @include box-sizing(border-box);
+}

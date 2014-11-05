@@ -1,17 +1,17 @@
-class App.Markdown.MarkdownParser
+class Monolith.Markdown.MarkdownParser
   TAB_TO_SPACES = '  '
 
   @parse: (input)->
-    new App.Markdown.MarkdownParser().parse(input)
+    new Monolith.Markdown.MarkdownParser().parse(input)
 
   parse: (@input) ->
-    @game = new App.Models.Game(
+    @game = new Monolith.Models.Game(
       parsedAt: Date.now()
     )
 
     @contextStack = []
 
-    @_pushContext(new App.Markdown.GameContext(@game), 0)
+    @_pushContext(new Monolith.Markdown.GameContext(@game), 0)
 
     lines = _.map(@input.split("\n"), (line) => @cleanup(line) )
     @lastObject = null
@@ -26,7 +26,7 @@ class App.Markdown.MarkdownParser
 
         @currentIndent = line.indent
 
-        objectDescriptor = App.Markdown.Tokenizer.parse(line.line, index)
+        objectDescriptor = Monolith.Markdown.Tokenizer.parse(line.line, index)
         if (objectDescriptor?)
           if (line.indent == 0 && line.line[0] == "#")
             @_popToRoot()
@@ -34,7 +34,7 @@ class App.Markdown.MarkdownParser
           console.log(line.line, @_getStackNames())
           @_currentContext().foundObject(objectDescriptor)
 
-          if (objectDescriptor.type in [App.Markdown.ObjectType.Runner, App.Markdown.ObjectType.Corp, App.Markdown.ObjectType.Current])
+          if (objectDescriptor.type in [Monolith.Markdown.ObjectType.Runner, Monolith.Markdown.ObjectType.Corp, Monolith.Markdown.ObjectType.Current])
             @_openContext(objectDescriptor, line.indent)
 
           @lastObject = objectDescriptor

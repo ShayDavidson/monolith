@@ -1,4 +1,4 @@
-App.Markdown.ObjectType = {
+Monolith.Markdown.ObjectType = {
   Unknown: "unknown",
 
   # players

@@ -1,9 +1,21 @@
-$global-padding: 10px;
+$global-padding: 6px;
 
 @import 'compass';
 @import 'compass/css3/flexbox';
-@import 'board';
-@import 'cards';
+@import 'compass/css3/animation';
+
+@import 'mixins/animations';
+
+@import 'components/board';
+@import 'components/player';
+@import 'components/info';
+@import 'components/pile';
+@import 'components/cards';
+@import 'components/hand';
+@import 'components/tokens';
+
+
+@import 'components/editor';
 
 body, html {
   width: 100%;
@@ -19,14 +31,4 @@ body {
   background-size: $background-size $background-size;
 
   padding: $global-padding;
-}
-
-
-.markdown-editor{
-  height: 100%;
-}
-.text-column{
-  font-size: 14px;
-  width: 40%;
-  height: 100%;
 }

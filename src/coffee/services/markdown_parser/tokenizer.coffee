@@ -1,6 +1,6 @@
-class App.Markdown.Tokenizer
+class Monolith.Markdown.Tokenizer
   @parse: (lineText, lineNumber) ->
-    new App.Markdown.Tokenizer(lineText, lineNumber).parse()
+    new Monolith.Markdown.Tokenizer(lineText, lineNumber).parse()
 
   constructor: (@lineText, @lineNumber) ->
 
@@ -28,12 +28,12 @@ class App.Markdown.Tokenizer
     regex = /^#\s?current/
 
     if (@lineText.match(regex))
-      @_makeDescriptor(App.Markdown.ObjectType.Current)
+      @_makeDescriptor(Monolith.Markdown.ObjectType.Current)
     else
       null
 
   _parseTokens: ->
-    types = App.Markdown.ObjectType
+    types = Monolith.Markdown.ObjectType
     acceptedValues = {
       'credit': types.Credits
       'cred': types.Credits
@@ -63,10 +63,10 @@ class App.Markdown.Tokenizer
       null
 
   _parseCard: ->
-    card = App.Services.CardFinder.find(@lineText)
+    card = Monolith.Services.CardFinder.find(@lineText)
     if (card?)
-      card = new App.Models.Card(card)
-      @_makeDescriptor(App.Markdown.ObjectType.Card, card)
+      card = new Monolith.Models.Card(card)
+      @_makeDescriptor(Monolith.Markdown.ObjectType.Card, card)
 
   _makeDescriptor: (type, value) ->
-    new App.Markdown.ObjectDescriptor(@lineText, @lineNumber, type, value)
+    new Monolith.Markdown.ObjectDescriptor(@lineText, @lineNumber, type, value)

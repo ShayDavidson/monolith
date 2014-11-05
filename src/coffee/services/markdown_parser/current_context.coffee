@@ -1,9 +1,9 @@
-class App.Markdown.CurrentContext extends App.Markdown.Context
+class Monolith.Markdown.CurrentContext extends Monolith.Markdown.Context
   constructor: (@game) ->
     @setCard = false
 
   foundObject: (objectDescriptor) ->
-    if (objectDescriptor.type == App.Markdown.ObjectType.Card)
+    if (objectDescriptor.type == Monolith.Markdown.ObjectType.Card)
       if (@setCard)
         throw new Error("Already set current")
       else

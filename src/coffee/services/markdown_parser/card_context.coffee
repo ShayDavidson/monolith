@@ -1,23 +1,23 @@
-class App.Markdown.CardContext extends App.Markdown.Context
+class Monolith.Markdown.CardContext extends Monolith.Markdown.Context
 
   constructor: (@card) ->
 
   foundObject: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Card
+      when Monolith.Markdown.ObjectType.Card
         @card.hostedCards().add(objectDescriptor.value)
-      when App.Markdown.ObjectType.Credits
+      when Monolith.Markdown.ObjectType.Credits
         @card.set("credits", objectDescriptor.value)
-      when App.Markdown.ObjectType.VirusToken
+      when Monolith.Markdown.ObjectType.VirusToken
         @card.set("virusTokens", objectDescriptor.value)
-      when App.Markdown.ObjectType.AdvancedmentToken
+      when Monolith.Markdown.ObjectType.AdvancedmentToken
         @card.set("advancementTokens", objectDescriptor.value)
-      when App.Markdown.ObjectType.GenericToken
+      when Monolith.Markdown.ObjectType.GenericToken
         @card.set("genericTokens", objectDescriptor.value)
       else
         super
 
   openContext: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Card
-        new App.Markdown.CardContext(objectDescriptor.value)
+      when Monolith.Markdown.ObjectType.Card
+        new Monolith.Markdown.CardContext(objectDescriptor.value)

@@ -1,2 +1,2 @@
-class App.Markdown.ObjectDescriptor
+class Monolith.Markdown.ObjectDescriptor
   constructor: (@lineText, @lineNumber, @type, @value) ->

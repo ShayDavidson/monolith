@@ -1,4 +1,4 @@
-class App.Services.CardFinder
+class Monolith.Services.CardFinder
 
   constructor: ->
     $.getJSON 'http://netrunnerdb.com/api/cards/', (cards) =>
@@ -15,7 +15,7 @@ class App.Services.CardFinder
     @cards[@cleanUp(cardName)]
 
   @find: (cardName) ->
-    App.Services.CardFinder.singelton.find(cardName)
+    Monolith.Services.CardFinder.singelton.find(cardName)
 
 
-App.Services.CardFinder.singelton = new App.Services.CardFinder()
+Monolith.Services.CardFinder.singelton = new Monolith.Services.CardFinder()

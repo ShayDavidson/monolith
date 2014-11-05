@@ -1,0 +1,36 @@
+.tokens-pile {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.token {
+  $token-percent: 40%;
+  $token-percent-in-card: 18%;
+  position: absolute;
+  height: $token-percent;
+  background-color: black;
+
+  .card & {
+    height: $token-percent-in-card;
+  }
+
+  @include box-shadow(-1px -1px 1px 1px rgba(0, 0, 0, 0.5));
+
+  $random-range: 40;
+  @for $i from 0 through $random-range {
+    &.random-transform-#{$i} {
+      $deg: (-$random-range / 2) + ($i * 2);
+      @include transform(rotate(#{$deg}deg));
+    }
+  }
+
+  &.credit {
+    @include border-radius(100%);
+  }
+
+  &.tag, &.bad-publicity {
+    @include border-radius(15%);
+  }
+
+}

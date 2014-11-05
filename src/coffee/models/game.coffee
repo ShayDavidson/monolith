@@ -1,4 +1,4 @@
-class App.Models.Game extends Backbone.Model
+class Monolith.Models.Game extends Backbone.Model
 
   defaults:
     corp: null
@@ -6,9 +6,9 @@ class App.Models.Game extends Backbone.Model
 
 
   runner: ->
-    @set('runner', new App.Models.Player()) unless @has('runner')
+    @set('runner', new Monolith.Models.Player()) unless @has('runner')
     @get('runner')
 
   corp: ->
-    @set('corp', new App.Models.Player()) unless @has('corp')
+    @set('corp', new Monolith.Models.Player()) unless @has('corp')
     @get('corp')

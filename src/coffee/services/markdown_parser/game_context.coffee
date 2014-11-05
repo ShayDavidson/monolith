@@ -1,21 +1,21 @@
-class App.Markdown.GameContext extends App.Markdown.Context
+class Monolith.Markdown.GameContext extends Monolith.Markdown.Context
   constructor: (@game) ->
 
   foundObject: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Runner
+      when Monolith.Markdown.ObjectType.Runner
         @game.runner()
         @game.runner().setIdentity(objectDescriptor.value) if objectDescriptor.value?
-      when App.Markdown.ObjectType.Corp
+      when Monolith.Markdown.ObjectType.Corp
         @game.corp()
         @game.corp().setIdentity(objectDescriptor.value) if objectDescriptor.value?
-      when App.Markdown.ObjectType.Current
+      when Monolith.Markdown.ObjectType.Current
         return
 
   openContext: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Runner
-        new App.Markdown.RunnerContext(@game.runner())
-      when App.Markdown.ObjectType.Current
-        new App.Markdown.CurrentContext(@game)
+      when Monolith.Markdown.ObjectType.Runner
+        new Monolith.Markdown.RunnerContext(@game.runner())
+      when Monolith.Markdown.ObjectType.Current
+        new Monolith.Markdown.CurrentContext(@game)
 

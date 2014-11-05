@@ -1,18 +1,18 @@
-class App.Markdown.CorpContext extends App.Markdown.Context
+class Monolith.Markdown.CorpContext extends Monolith.Markdown.Context
   constructor: (line, @corp) ->
     super(line)
 
   foundObject: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Credits
+      when Monolith.Markdown.ObjectType.Credits
         @corp.setCredits(objectDescriptor.value)
-      when App.Markdown.ObjectType.BadPublicity
+      when Monolith.Markdown.ObjectType.BadPublicity
         @corp.setBadPublicity(objectDescriptor.value)
-      when App.Markdown.ObjectType.HQ
+      when Monolith.Markdown.ObjectType.HQ
         @corp.setHQ(objectDescriptor.value)
-      when App.Markdown.ObjectType.Servers
+      when Monolith.Markdown.ObjectType.Servers
         @corp.setServers(objectDescriptor.value)
-      when App.Markdown.ObjectType.Scored
+      when Monolith.Markdown.ObjectType.Scored
         @corp.setScored(objectDescriptor.value)
       else
         super

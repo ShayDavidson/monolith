@@ -1,38 +1,38 @@
-class App.Markdown.RunnerContext extends App.Markdown.Context
+class Monolith.Markdown.RunnerContext extends Monolith.Markdown.Context
   constructor: (@runner) ->
 
   foundObject: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Grip
+      when Monolith.Markdown.ObjectType.Grip
         return
-      when App.Markdown.ObjectType.Heap
+      when Monolith.Markdown.ObjectType.Heap
         return
-      when App.Markdown.ObjectType.Stack
+      when Monolith.Markdown.ObjectType.Stack
         return
-      when App.Markdown.ObjectType.Installed
+      when Monolith.Markdown.ObjectType.Installed
         return
-      when App.Markdown.ObjectType.Scored
+      when Monolith.Markdown.ObjectType.Scored
         return
-      when App.Markdown.ObjectType.Credits
+      when Monolith.Markdown.ObjectType.Credits
         @runner.set("credits", objectDescriptor.value)
-      when App.Markdown.ObjectType.Tags
+      when Monolith.Markdown.ObjectType.Tags
         @runner.set("tags", objectDescriptor.value)
-      when App.Markdown.ObjectType.BrainDamage
+      when Monolith.Markdown.ObjectType.BrainDamage
         @runner.set("brainDamage", objectDescriptor.value)
       else
         super
 
   openContext: (objectDescriptor) ->
     switch (objectDescriptor.type)
-      when App.Markdown.ObjectType.Grip
-        new App.Markdown.CardCollectionContext(@runner.grip())
-      when App.Markdown.ObjectType.Heap
-        new App.Markdown.CardCollectionContext(@runner.heap())
-      when App.Markdown.ObjectType.Stack
-        new App.Markdown.CardCollectionContext(@runner.stack())
-      when App.Markdown.ObjectType.Installed
-        new App.Markdown.CardCollectionContext(@runner.installed(), false)
-      when App.Markdown.ObjectType.Scored
-        new App.Markdown.CardCollectionContext(@runner.scored())
+      when Monolith.Markdown.ObjectType.Grip
+        new Monolith.Markdown.CardCollectionContext(@runner.grip())
+      when Monolith.Markdown.ObjectType.Heap
+        new Monolith.Markdown.CardCollectionContext(@runner.heap())
+      when Monolith.Markdown.ObjectType.Stack
+        new Monolith.Markdown.CardCollectionContext(@runner.stack())
+      when Monolith.Markdown.ObjectType.Installed
+        new Monolith.Markdown.CardCollectionContext(@runner.installed(), false)
+      when Monolith.Markdown.ObjectType.Scored
+        new Monolith.Markdown.CardCollectionContext(@runner.scored())
       else
         super

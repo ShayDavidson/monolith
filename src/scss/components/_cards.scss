@@ -1,0 +1,74 @@
+$card-aspect-ratio: 0.706;
+
+.card {
+  $shadow-dist: -0.3px;
+  $border-radius: 6%;
+
+  cursor: pointer;
+  z-index: 1000;
+  width: auto; // determined by code.
+  height: 100%;
+  position: absolute;
+
+  &:not(.faceUp) {
+    .runner & {
+      background-image: url('/images/cards/runner-back.jpg')
+    }
+    .corp & {
+      background-image: url('/images/cards/corp-back.jpg')
+    }
+  }
+
+  .pile & {
+    &:first-child,  {
+      @include box-shadow($shadow-dist $shadow-dist 1px 1px rgba(0, 0, 0, 0.35));
+    }
+
+    &:not(:first-child) {
+      @include box-shadow($shadow-dist $shadow-dist 1px 1px rgba(0, 0, 0, 0.12));
+    }
+
+    .left & { @include transform(rotate(90deg)); }
+    .right & { @include transform(rotate(-90deg)); }
+  }
+
+  .tokens {
+    width: 100%;
+    height: 100%;
+  }
+
+  background-size: cover;
+
+  @include user-select(none);
+  @include border-radius($border-radius);
+  @include box-shadow($shadow-dist $shadow-dist 1px 1px rgba(0, 0, 0, 0.35));
+
+  &.loading:before {
+    content: '';
+    background: url('/images/cards/spinner.png') no-repeat center;
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    @include animation(spin 1s infinite linear);
+  }
+}
+
+.zoomed-card-container {
+  $zoomed-card-height: 440px;
+  $zoomed-card-width: $zoomed-card-height * $card-aspect-ratio;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$zoomed-card-height/2;
+  margin-left: -$zoomed-card-width/2;
+  height: $zoomed-card-height;
+  background-color: gray;
+
+  .card {
+    @include box-shadow(0px 0px 300px 30px rgba(0, 0, 0, 0.9));
+    z-index: 5000;
+
+    height: $zoomed-card-height;
+    width: $zoomed-card-width;
+  }
+}

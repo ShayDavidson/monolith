@@ -1,7 +1,7 @@
-class App.Models.Card extends Backbone.Model
+class Monolith.Models.Card extends Backbone.Model
 
   hostedCards: ->
-    @set('hostedCards', new App.Models.Cards()) unless @has('hostedCards')
+    @set('hostedCards', new Monolith.Models.Cards()) unless @has('hostedCards')
     @get('hostedCards')
 
   toJSON: ->
@@ -15,5 +15,5 @@ class App.Models.Card extends Backbone.Model
         'hostedCards'
     ])
 
-class App.Models.Cards extends Backbone.Collection
-  model: App.Models.Card
+class Monolith.Models.Cards extends Backbone.Collection
+  model: Monolith.Models.Card
