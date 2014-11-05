@@ -30,7 +30,7 @@ class Monolith.Views.CardView extends Monolith.Views.BaseCardView
     return unless @_canZoom()
     
     @isZooming = true
-    @zoomedCard = new Monolith.Views.ZoomedCardView(model: @model)
+    @zoomedCard = new Monolith.Views.BaseCardView(model: @model)
     Monolith.zoomedCardRegion.show(@zoomedCard)
 
   _checkZooming: ->
@@ -38,5 +38,5 @@ class Monolith.Views.CardView extends Monolith.Views.BaseCardView
 
   _stopZooming: ->
     if @isZooming
-      @zoomedCard.hide()
+      @zoomedCard.destroy()
       @isZooming = false

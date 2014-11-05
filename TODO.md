@@ -1,5 +1,4 @@
 - Refactor tokens (proper collection)
-- Hold and move to view more cards.
 - 90deg cards (ICE) & Pile rows
 - Trash pile (icon)
 - Cool README
