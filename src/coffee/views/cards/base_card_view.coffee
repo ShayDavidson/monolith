@@ -8,6 +8,13 @@ class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'
 
   onRender: ->
+    @_renderTokens()
+    @_renderPreloading()
+
+  _renderTokens: ->
+    @tokens.show(new Monolith.Views.TokensPileView(model: @model.get('tokens').sample())) if @model.has('tokens')
+
+  _renderPreloading: ->
     if @model.get('faceUp')
       @_showLoadingSpinner()
       @model.preloadImage().then(=> @_onImageLoaded())

@@ -7,6 +7,9 @@ class Monolith.Models.TokensCollection extends Backbone.Collection
     ), 0)
     new Monolith.Models.TokensModel(type: type, amount: amount)
 
+  sample: ->
+    @ofType(@first().get('type'))
+
 class Monolith.Models.TokensModel extends Backbone.Model
 
   TOKENS_IMAGE_PATH = '/images/tokens/'

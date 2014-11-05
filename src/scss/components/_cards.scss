@@ -32,6 +32,11 @@ $card-aspect-ratio: 0.706;
     .right & { @include transform(rotate(-90deg)); }
   }
 
+  .tokens {
+    width: 100%;
+    height: 100%;
+  }
+
   background-size: cover;
 
   @include user-select(none);
