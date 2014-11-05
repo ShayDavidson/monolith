@@ -1,6 +1,9 @@
-class Monolith.Views.BaseCardView extends Backbone.Marionette.ItemView
+class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
   template: '#card-view-template'
   className: 'card'
+
+  regions:
+    tokens: '.tokens'
 
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'
 
