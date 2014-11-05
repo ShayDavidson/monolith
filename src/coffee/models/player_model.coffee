@@ -7,6 +7,14 @@ class App.Models.Player extends Backbone.Model
   setIdentity: (identity) ->
     @set('identity', identity)
 
+  stack: ->
+    @set('stack', new App.Models.Cards()) unless @has('stack')
+    @get('stack')
+
+  scored: ->
+    @set('scored', new App.Models.Cards()) unless @has('scored')
+    @get('scored')
+
   grip: ->
     @set('grip', new App.Models.Cards()) unless @has('grip')
     @get('grip')

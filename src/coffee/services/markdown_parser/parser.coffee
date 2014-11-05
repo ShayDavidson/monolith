@@ -9,9 +9,9 @@ class App.Markdown.MarkdownParser
       parsedAt: Date.now()
     )
 
-    @contextStack = [
-      new App.Markdown.GameContext(@game)
-    ]
+    @contextStack = []
+
+    @_pushContext(new App.Markdown.GameContext(@game), 0)
 
     lines = _.map(@input.split("\n"), (line) => @cleanup(line) )
     @game.set("lines", lines)
@@ -19,17 +19,22 @@ class App.Markdown.MarkdownParser
     @currentIndent = 0
 
     _.each(lines, (line, index) =>
-      if (line.indent > @currentIndent)
-        @contextStack.push(@_currentContext().openContext(@lastObject))
-      else if (line.indent < @currentIndent)
-        @contextStack.pop()
+      console.log(line.line, @contextStack)
+      if (!_.isEmpty(line.line))
+        if (line.indent > @currentIndent)
+          @_pushContext(@_currentContext().openContext(@lastObject), line.indent)
+        else if (line.indent < @currentIndent)
+          @_popContext(line.indent)
 
-      @currentIndent = line.indent
+        @currentIndent = line.indent
 
-      objectDescriptor = @_parseLine(line.line, index)
-      if (objectDescriptor?)
-        @_currentContext().foundObject(objectDescriptor)
-        @lastObject = objectDescriptor
+        objectDescriptor = App.Markdown.Tokenizer.parse(line.line, index)
+        if (objectDescriptor?)
+          @_currentContext().foundObject(objectDescriptor)
+          if (objectDescriptor.type in [App.Markdown.ObjectType.Runner, App.Markdown.ObjectType.Corp])
+            @_pushContext(@_currentContext().openContext(objectDescriptor), line.indent)
+
+          @lastObject = objectDescriptor
     )
 
     return @game
@@ -41,21 +46,23 @@ class App.Markdown.MarkdownParser
     matched = line.replace(/\t/g, TAB_TO_SPACES).match(/^\s+/)
     if matched then matched[0].length else 0
 
-  _currentContext: ->
+  _pushContext: (context, indent) ->
+    throw new Error("No context found") unless context?
+    @contextStack.push({
+      context: context,
+      indent: indent
+    })
+
+  _popContext: (indent) ->
+    @contextStack.pop() # since we allow same-indent contexts, we need to explicitly pop at least once
+    while (@contextStack.length > 0 && @_lastContext().indent > indent)
+      @contextStack.pop()
+
+    if (!@_lastContext() || @_lastContext().indent < indent)
+      throw new Error("Indent mismatch")
+
+  _lastContext: ->
     @contextStack[@contextStack.length-1]
 
-  _parseLine: (line, index) ->
-    @_parsePlayer(line, index) ||
-    null
-
-  _parsePlayer: (line, index) ->
-    playerRegex = /^#\s?(runner|corp)(\s?@\s?(.*))?$/
-
-    result = line.match(playerRegex)
-    if (result?)
-      type = result[1]
-      value = result[3]
-      new App.Markdown.ObjectDescriptor(line, index, type, value)
-    else
-      null
-
+  _currentContext: ->
+    @_lastContext()?.context
