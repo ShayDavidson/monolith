@@ -14,7 +14,6 @@ class App.Markdown.MarkdownParser
     @_pushContext(new App.Markdown.GameContext(@game), 0)
 
     lines = _.map(@input.split("\n"), (line) => @cleanup(line) )
-    @game.set("lines", lines)
     @lastObject = null
     @currentIndent = 0
 

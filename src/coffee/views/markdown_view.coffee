@@ -12,12 +12,12 @@ class App.Views.MarkdownView extends Marionette.ItemView
 
   initialize: ->
     @render()
+    @updateModel()
 
   onRender: ->
     @ui.output.val(JSON.stringify(@model.toJSON(), undefined, 2))
 
   updateModel: ->
-    console.log(".")
     text = @ui.input.val()
     game = App.Markdown.MarkdownParser.parse(text)
     @model.set(game.attributes)
