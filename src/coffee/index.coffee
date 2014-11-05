@@ -31,8 +31,7 @@ $ ->
   runnerHand1 = new Monolith.Models.CardModel(cardId: '04109', faceUp: true) # Lucky Find
   runnerHand2 = new Monolith.Models.CardModel(cardId: '02047', faceUp: true) # Test Run
   runnerHand3 = new Monolith.Models.CardModel(cardId: '04047', faceUp: true) # Torch
-  runnerHand4 = new Monolith.Models.CardModel(cardId: '01034') # Diesel
-  runnerHand5 = new Monolith.Models.CardModel() # Diesel
+  runnerHand4 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
 
   runnerResourceTokens = new Monolith.Models.TokensCollection([new Monolith.Models.TokensModel(type: 'credit', amount: 3)])
   runnerResource = new Monolith.Models.CardModel(cardId: '02091', faceUp: true, tokens: runnerResourceTokens) # Kati Jones
@@ -59,12 +58,12 @@ $ ->
   runnerPiles = new Monolith.Models.PileCollection([runnerTempPile, runnerIdPile, runnerDeck, lastNoCardsPile])
   corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, corpTrash])
 
-  runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4, runnerHand5])
+  runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
   corpHand = new Monolith.Models.CardCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
 
   # Tokens
 
-  runnerCredits = new Monolith.Models.TokensModel(type: 'credit', amount: 5)
+  runnerCredits = new Monolith.Models.TokensModel(type: 'credit', amount: 3)
   corpCredits = new Monolith.Models.TokensModel(type: 'credit', amount: 15)
   corpBadPub = new Monolith.Models.TokensModel(type: 'bad-publicity', amount: 1)
 
