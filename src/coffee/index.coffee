@@ -31,8 +31,8 @@ $ ->
   runnerHand1 = new Monolith.Models.CardModel(cardId: '04109', faceUp: true) # Lucky Find
   runnerHand2 = new Monolith.Models.CardModel(cardId: '02047', faceUp: true) # Test Run
   runnerHand3 = new Monolith.Models.CardModel(cardId: '04047', faceUp: true) # Torch
-  runnerHand4 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
-  runnerHand5 = new Monolith.Models.CardModel(cardId: '01034', faceUp: true) # Diesel
+  runnerHand4 = new Monolith.Models.CardModel(cardId: '01034') # Diesel
+  runnerHand5 = new Monolith.Models.CardModel() # Diesel
 
   # Piles
 
