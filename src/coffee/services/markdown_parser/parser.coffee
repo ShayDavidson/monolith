@@ -28,9 +28,13 @@ class App.Markdown.MarkdownParser
 
         objectDescriptor = App.Markdown.Tokenizer.parse(line.line, index)
         if (objectDescriptor?)
-          @_currentContext().foundObject(objectDescriptor)
+          if (line.indent == 0 && line.line[0] == "#")
+            @_popToRoot()
+
           console.log(line.line, @_getStackNames())
-          if (objectDescriptor.type in [App.Markdown.ObjectType.Runner, App.Markdown.ObjectType.Corp])
+          @_currentContext().foundObject(objectDescriptor)
+
+          if (objectDescriptor.type in [App.Markdown.ObjectType.Runner, App.Markdown.ObjectType.Corp, App.Markdown.ObjectType.Current])
             @_openContext(objectDescriptor, line.indent)
 
           @lastObject = objectDescriptor
@@ -57,12 +61,17 @@ class App.Markdown.MarkdownParser
     })
 
   _popContext: (indent) ->
-    @contextStack.pop() # since we allow same-indent contexts, we need to explicitly pop at least once
-    while (@contextStack.length > 0 && @_lastContext().indent > indent)
-      @contextStack.pop()
+    if (@contextStack.length > 1)
+      @contextStack.pop() # since we allow same-indent contexts, we need to explicitly pop at least once
+      while (@contextStack.length > 1 && @_lastContext().indent > indent)
+        @contextStack.pop()
 
-    if (!@_lastContext() || @_lastContext().indent < indent)
-      throw new Error("Indent mismatch")
+      if (!@_lastContext() || @_lastContext().indent < indent)
+        throw new Error("Indent mismatch")
+
+  _popToRoot: ->
+    while (@contextStack.length > 1)
+      @contextStack.pop()
 
   _lastContext: ->
     @contextStack[@contextStack.length-1]

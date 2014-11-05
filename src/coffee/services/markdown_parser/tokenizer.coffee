@@ -7,6 +7,7 @@ class App.Markdown.Tokenizer
   parse: ->
     _.find([
       @_parsePlayer(),
+      @_parseCurrent(),
       @_parseTokens(),
       @_parseContext(),
       @_parseCard()
@@ -20,6 +21,14 @@ class App.Markdown.Tokenizer
       type = result[1]
       value = result[3]
       @_makeDescriptor(type, value)
+    else
+      null
+
+  _parseCurrent: ->
+    regex = /^#\s?current/
+
+    if (@lineText.match(regex))
+      @_makeDescriptor(App.Markdown.ObjectType.Current)
     else
       null
 

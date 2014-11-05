@@ -9,9 +9,13 @@ class App.Markdown.GameContext extends App.Markdown.Context
       when App.Markdown.ObjectType.Corp
         @game.corp()
         @game.corp().setIdentity(objectDescriptor.value) if objectDescriptor.value?
+      when App.Markdown.ObjectType.Current
+        return
 
   openContext: (objectDescriptor) ->
     switch (objectDescriptor.type)
       when App.Markdown.ObjectType.Runner
         new App.Markdown.RunnerContext(@game.runner())
+      when App.Markdown.ObjectType.Current
+        new App.Markdown.CurrentContext(@game)
 

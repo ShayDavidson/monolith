@@ -5,6 +5,9 @@ App.Markdown.ObjectType = {
   Runner: "runner",
   Corp: "corp",
 
+  # globals
+  Current: "current",
+
   # tokens
   Credits: "credits",
   Tags: "tags",
