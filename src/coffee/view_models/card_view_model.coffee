@@ -1,7 +1,7 @@
-class Monolith.Models.CardCollection extends Backbone.Collection
-  model: Monolith.Models.CardModel
+class Monolith.ViewModels.CardViewCollection extends Backbone.Collection
+  model: Monolith.ViewModels.CardViewModel
 
-class Monolith.Models.CardModel extends Backbone.Model
+class Monolith.ViewModels.CardViewModel extends Backbone.Model
   defaults:
     cardId: null
     faceUp: false

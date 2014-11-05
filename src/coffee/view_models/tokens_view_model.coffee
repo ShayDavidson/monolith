@@ -1,16 +1,16 @@
-class Monolith.Models.TokensCollection extends Backbone.Collection
-  model: Monolith.Models.TokensModel
+class Monolith.ViewModels.TokensViewCollection extends Backbone.Collection
+  model: Monolith.ViewModels.TokensViewModel
 
   ofType: (type) ->
     amount = @where(type: type).reduce(((sum, tokenModel) ->
       sum + tokenModel.get('amount')
     ), 0)
-    new Monolith.Models.TokensModel(type: type, amount: amount)
+    new Monolith.ViewModels.TokensViewModel(type: type, amount: amount)
 
   sample: ->
     @ofType(@first().get('type'))
 
-class Monolith.Models.TokensModel extends Backbone.Model
+class Monolith.ViewModels.TokensViewModel extends Backbone.Model
 
   TOKENS_IMAGE_PATH = '/images/tokens/'
   TOKENS_IMAGE_SUFFIX = '.png'

@@ -1,4 +1,4 @@
-class Monolith.Models.PlayerModel extends Backbone.Model
+class Monolith.ViewModels.PlayerViewModel extends Backbone.Model
 
   defaults:
     type: null # 'corp' or 'runner'
