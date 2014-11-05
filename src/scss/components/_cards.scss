@@ -32,6 +32,15 @@ $card-aspect-ratio: 0.706;
     .right & { @include transform(rotate(-90deg)); }
   }
 
+  .current-region & {
+    height: 17vh;
+    @include transform(scaleY(-1));
+    left: 0;
+    right: 0;
+    margin: auto;
+    top: -12vh;
+  }
+
   .tokens {
     width: 100%;
     height: 100%;

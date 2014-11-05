@@ -8,6 +8,7 @@ $ ->
   # Regions
 
   Monolith.addRegions
+    currentRegion: '.current-region'
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
     zoomedCardRegion: '.zoomed-card-container'
@@ -84,6 +85,9 @@ $ ->
   else
     Monolith.rightPlayRegion.show(runnerView)
     Monolith.leftPlayRegion.show(corpView)
+
+  currentCard = new Monolith.ViewModels.CardViewModel(cardId: '06034', faceUp: true) # Scrubbed
+  Monolith.currentRegion.show(new Monolith.Views.CardView(model: currentCard))
 
   # Events
 
