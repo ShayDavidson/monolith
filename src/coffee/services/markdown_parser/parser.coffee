@@ -19,10 +19,9 @@ class App.Markdown.MarkdownParser
     @currentIndent = 0
 
     _.each(lines, (line, index) =>
-      console.log(line.line, @contextStack)
       if (!_.isEmpty(line.line))
         if (line.indent > @currentIndent)
-          @_pushContext(@_currentContext().openContext(@lastObject), line.indent)
+          @_openContext(@lastObject, line.indent)
         else if (line.indent < @currentIndent)
           @_popContext(line.indent)
 
@@ -31,8 +30,9 @@ class App.Markdown.MarkdownParser
         objectDescriptor = App.Markdown.Tokenizer.parse(line.line, index)
         if (objectDescriptor?)
           @_currentContext().foundObject(objectDescriptor)
+          console.log(line.line, @_getStackNames())
           if (objectDescriptor.type in [App.Markdown.ObjectType.Runner, App.Markdown.ObjectType.Corp])
-            @_pushContext(@_currentContext().openContext(objectDescriptor), line.indent)
+            @_openContext(objectDescriptor, line.indent)
 
           @lastObject = objectDescriptor
     )
@@ -45,6 +45,10 @@ class App.Markdown.MarkdownParser
   countIndent: (line) ->
     matched = line.replace(/\t/g, TAB_TO_SPACES).match(/^\s+/)
     if matched then matched[0].length else 0
+
+  _openContext: (objectDescriptor, indent) ->
+    console.log("Opening context", [objectDescriptor.lineText], "under", @_getStackNames())
+    @_pushContext(@_currentContext().openContext(objectDescriptor), indent)
 
   _pushContext: (context, indent) ->
     throw new Error("No context found") unless context?
@@ -66,3 +70,8 @@ class App.Markdown.MarkdownParser
 
   _currentContext: ->
     @_lastContext()?.context
+
+  _getStackNames: ->
+    _.map(@contextStack, (ctx) ->
+      ctx.context.constructor.name
+    )

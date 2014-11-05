@@ -7,6 +7,7 @@ class App.Markdown.Tokenizer
   parse: ->
     _.find([
       @_parsePlayer(),
+      @_parseTokens(),
       @_parseContext(),
       @_parseCard()
     ])
@@ -22,6 +23,27 @@ class App.Markdown.Tokenizer
     else
       null
 
+  _parseTokens: ->
+    types = App.Markdown.ObjectType
+    acceptedValues = {
+      'credit': types.Credits
+      'cred': types.Credits
+      'brain damage': types.BrainDamage
+      'tag': types.Tags
+      'bad publicity': types.BadPublicity
+      'bad pub': types.BadPublicity
+      'advancement': types.AdvancedmentToken
+      'virus': types.VirusToken
+      'power': types.GenericToken
+      'agenda': types.GenericToken
+    }
+
+    regex = new RegExp("^(\\d+)\\s(#{_.keys(acceptedValues).join("|")})(\\s(token|counter))?s?$")
+    if (m = @lineText.match(regex))
+      @_makeDescriptor(acceptedValues[m[2]], parseInt(m[1]))
+    else
+      null
+
   _parseContext: ->
     regex = /(grip|heap|stack|installed|scored)/
 
@@ -33,7 +55,9 @@ class App.Markdown.Tokenizer
 
   _parseCard: ->
     card = App.Services.CardFinder.find(@lineText)
-    @_makeDescriptor(App.Markdown.ObjectType.Card, card) if (card?)
+    if (card?)
+      card = new App.Models.Card(card)
+      @_makeDescriptor(App.Markdown.ObjectType.Card, card)
 
   _makeDescriptor: (type, value) ->
     new App.Markdown.ObjectDescriptor(@lineText, @lineNumber, type, value)

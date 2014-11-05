@@ -14,11 +14,11 @@ class App.Markdown.RunnerContext extends App.Markdown.Context
       when App.Markdown.ObjectType.Scored
         return
       when App.Markdown.ObjectType.Credits
-        @runner.setCredits(objectDescriptor.value)
+        @runner.set("credits", objectDescriptor.value)
       when App.Markdown.ObjectType.Tags
-        @runner.setTags(objectDescriptor.value)
+        @runner.set("tags", objectDescriptor.value)
       when App.Markdown.ObjectType.BrainDamage
-        @runner.setBrainDamage(objectDescriptor.value)
+        @runner.set("brainDamage", objectDescriptor.value)
       else
         super
 
@@ -31,7 +31,7 @@ class App.Markdown.RunnerContext extends App.Markdown.Context
       when App.Markdown.ObjectType.Stack
         new App.Markdown.CardCollectionContext(@runner.stack())
       when App.Markdown.ObjectType.Installed
-        new App.Markdown.CardCollectionContext(@runner.installed())
+        new App.Markdown.CardCollectionContext(@runner.installed(), false)
       when App.Markdown.ObjectType.Scored
         new App.Markdown.CardCollectionContext(@runner.scored())
       else

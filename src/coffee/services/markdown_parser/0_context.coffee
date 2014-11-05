@@ -1,3 +1,3 @@
 class App.Markdown.Context
   foundObject: (objectDescriptor) ->
-    throw new Error("#{objectDescriptor.lineText}##{objectDescriptor.lineNumber} doesn't belong inside")
+    throw new Error("##{objectDescriptor.lineNumber}: #{objectDescriptor.lineText} doesn't belong inside #{@constructor.name}")
