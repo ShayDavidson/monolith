@@ -57,10 +57,19 @@ $ ->
   runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4, runnerHand5])
   corpHand = new Monolith.Models.CardCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
 
+  # Tokens
+
+  runnerCredits = new Monolith.Models.TokensModel(type: 'credit', amount: 5)
+  corpCredits = new Monolith.Models.TokensModel(type: 'credit', amount: 15)
+  corpBadPub = new Monolith.Models.TokensModel(type: 'bad-publicity', amount: 1)
+
+  runnerTokens = new Monolith.Models.TokensCollection([runnerCredits])
+  corpTokens = new Monolith.Models.TokensCollection([corpCredits, corpBadPub])
+
   # Build board
 
-  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, credits: 5)
-  corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, credits: 15, badPublicity: 1)
+  runnerModel = new Monolith.Models.PlayerModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, tokens: runnerTokens)
+  corpModel = new Monolith.Models.PlayerModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, tokens: corpTokens)
 
   runnerView = new Monolith.Views.PlayerView(model: runnerModel)
   corpView = new Monolith.Views.PlayerView(model: corpModel)

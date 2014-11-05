@@ -11,10 +11,13 @@ class Monolith.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
     @_renderTagsOrBadPub()
 
   _renderCredits: ->
-    @credits.show(new Monolith.Views.TokensPileView(type: 'credit', amount: @model.get('credits')))
+    @credits.show(new Monolith.Views.TokensPileView(model: @_tokenModel('credit')))
 
   _renderTagsOrBadPub: ->
     if @model.get('type') == 'corp'
-      @tagsAndBadPub.show(new Monolith.Views.TokensPileView(type: 'bad-publicity', amount: @model.get('badPublicity')))
+      @tagsAndBadPub.show(new Monolith.Views.TokensPileView(model: @_tokenModel('bad-publicity')))
     else
-      @tagsAndBadPub.show(new Monolith.Views.TokensPileView(type: 'tag', amount: @model.get('tags')))
+      @tagsAndBadPub.show(new Monolith.Views.TokensPileView(model: @_tokenModel('tag')))
+
+  _tokenModel: (type) ->
+    @model.get('tokens').ofType(type)

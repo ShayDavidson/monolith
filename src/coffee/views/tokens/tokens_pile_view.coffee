@@ -13,9 +13,9 @@ class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
     @_renderTokens()
 
   _renderTokens: ->
-    type = @options.type
+    type = @model.get('type')
     src = TOKENS_IMAGE_PATH + type + TOKENS_IMAGE_SUFFIX
-    _.times(@options.amount, =>
+    _.times(@model.get('amount'), =>
       tokenEl = $(TOKEN_TEMPLATE)
       tokenEl.attr(src: src)
       tokenEl.css(top: "#{@_randomPercentage()}%", left: "#{@_randomPercentage()}%")
