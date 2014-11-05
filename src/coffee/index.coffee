@@ -34,6 +34,9 @@ $ ->
   runnerHand4 = new Monolith.Models.CardModel(cardId: '01034') # Diesel
   runnerHand5 = new Monolith.Models.CardModel() # Diesel
 
+  runnerResourceTokens = new Monolith.Models.TokensCollection([new Monolith.Models.TokensModel(type: 'credit', amount: 3)])
+  runnerResource = new Monolith.Models.CardModel(cardId: '02091', faceUp: true, tokens: runnerResourceTokens) # Kati Jones
+
   # Piles
 
   decksArray = []
@@ -51,7 +54,9 @@ $ ->
 
   corpTrash = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([corpTrash1]))
 
-  runnerPiles = new Monolith.Models.PileCollection([firstNoCardsPile, runnerIdPile, runnerDeck, lastNoCardsPile])
+  runnerTempPile = new Monolith.Models.PileModel(cards: new Monolith.Models.CardCollection([runnerResource]))
+
+  runnerPiles = new Monolith.Models.PileCollection([runnerTempPile, runnerIdPile, runnerDeck, lastNoCardsPile])
   corpPiles = new Monolith.Models.PileCollection([firstNoCardsPile, corpIdPile, corpDeck, corpTrash])
 
   runnerHand = new Monolith.Models.CardCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4, runnerHand5])

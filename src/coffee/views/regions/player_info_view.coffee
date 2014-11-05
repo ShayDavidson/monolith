@@ -20,4 +20,4 @@ class Monolith.Views.PlayerInfoView extends Backbone.Marionette.LayoutView
       @tagsAndBadPub.show(new Monolith.Views.TokensPileView(model: @_tokenModel('tag')))
 
   _tokenModel: (type) ->
-    @model.get('tokens').ofType(type)
+    @model.get('tokens')?.ofType(type)
