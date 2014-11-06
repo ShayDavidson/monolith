@@ -22,6 +22,8 @@ $ ->
   markdownView = new Monolith.Views.MarkdownView(model: markdown)
 
   gameViewModel = Monolith.ViewModels.GameViewModel.defaultGame()
+  markdown.set('viewModel', gameViewModel)
+
   runnerView = new Monolith.Views.PlayerView(model: gameViewModel.get('runner'))
   corpView = new Monolith.Views.PlayerView(model: gameViewModel.get('corp'))
 

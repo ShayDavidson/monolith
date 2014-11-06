@@ -6,11 +6,13 @@ class Monolith.Views.MarkdownView extends Marionette.ItemView
     overlay: '.markdown-overlay'
     button: '.markdown-btn'
     input: "#input"
+    updateBtn: '.update-btn'
 
   events:
     'click @ui.button': 'showOverlay'
 #    'change @ui.input': 'updateModel'
-    'keyup @ui.input': 'updateModel'
+    'keyup @ui.input': 'onkeyup'
+    'click @ui.updateBtn': 'updateModel'
 
 
   showOverlay: ->
@@ -19,12 +21,16 @@ class Monolith.Views.MarkdownView extends Marionette.ItemView
   initialize: ->
     @bindUIElements()
 
-
+  updateModel: ->
+    console.log('update model', @ui.input.val())
+    @model.set('text', @ui.input.val())
+    @model.translate()
+    @ui.overlay.hide()
 
 #  onRender: ->
 #    @ui.output.val(JSON.stringify(@model.toJSON(), undefined, 2))
 
-  updateModel: ->
+  onkeyup: ->
     text = @ui.input.val()
     game = Monolith.Markdown.MarkdownParser.parse(text)
     @model.set(game.attributes)
