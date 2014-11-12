@@ -25,7 +25,7 @@
     }
   }
 
-  &.credit {
+  &.credit, &.virus, &.generic, &.advancement {
     @include border-radius(100%);
   }
 
