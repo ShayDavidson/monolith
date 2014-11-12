@@ -11,6 +11,17 @@
 //  margin-left: -15px;
 //  z-index: 999999;
 }
+.markdown-backlayer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999998;
+  display: block;
+  background: rgba(0,0,0,0.3);
+  display: none;
+}
 .markdown-overlay{
   position: fixed;
   top: 10%;
@@ -18,11 +29,11 @@
   right: 10%;
   bottom: 10%;
   z-index: 999999;
-  display: block;
   width: 80%;
   height: 80%;
+  padding: 20px;
+  background: #eee;;
 
-  display: none;
 
   textarea{
     width: 100%;
