@@ -7,11 +7,6 @@ Monolith.Services = {}
 Monolith.Markdown = {}
 
 $ ->
-#  window.game = game
-#  markdownView = new Monolith.Views.MarkdownView(model: game)
-
-  # Regions
-
   Monolith.addRegions
     leftPlayRegion: '.play-region.left'
     rightPlayRegion: '.play-region.right'
@@ -19,6 +14,7 @@ $ ->
 
   # Editor
   markdown = new Monolith.Models.Markdown()
+  window.markdown = markdown
   markdownView = new Monolith.Views.MarkdownView(model: markdown)
 
   gameViewModel = Monolith.ViewModels.GameViewModel.defaultGame()
@@ -33,6 +29,12 @@ $ ->
   else
     Monolith.rightPlayRegion.show(runnerView)
     Monolith.leftPlayRegion.show(corpView)
+
+  markdownView.on('updated', () ->
+    runnerView.render()
+    corpView.render()
+    $(window).trigger('resize')
+  )
 
   # Events
 

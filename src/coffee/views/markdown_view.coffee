@@ -17,6 +17,7 @@ class Monolith.Views.MarkdownView extends Marionette.ItemView
 
   showOverlay: ->
     @ui.overlay.show()
+    @ui.input.val(@model.get('text'))
 
   initialize: ->
     @bindUIElements()
@@ -26,6 +27,7 @@ class Monolith.Views.MarkdownView extends Marionette.ItemView
     @model.set('text', @ui.input.val())
     @model.translate()
     @ui.overlay.hide()
+    @trigger('updated')
 
 #  onRender: ->
 #    @ui.output.val(JSON.stringify(@model.toJSON(), undefined, 2))

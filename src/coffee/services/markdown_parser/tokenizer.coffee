@@ -19,8 +19,10 @@ class Monolith.Markdown.Tokenizer
     result = @lineText.match(playerRegex)
     if (result?)
       type = result[1]
-      value = result[3]
-      @_makeDescriptor(type, value)
+      identity = Monolith.Services.CardFinder.findIdentity(result[3])
+      card = new Monolith.Models.Card(identity)
+
+      @_makeDescriptor(type, card)
     else
       null
 
