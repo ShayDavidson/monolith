@@ -2,6 +2,7 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
   defaults:
     runner: null
     corp: null
+    current: null
 
   isRunnerOnLeft: ->
     @get('runner').get('side') == 'left'
@@ -70,9 +71,11 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
 
     runnerModel = new Monolith.ViewModels.PlayerViewModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, tokens: runnerTokens)
     corpModel = new Monolith.ViewModels.PlayerViewModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, tokens: corpTokens)
+    currentCard = new Monolith.ViewModels.CardViewModel(cardId: '06034', faceUp: true) # Scrubbed
 
     game = new Monolith.ViewModels.GameViewModel(
       runner: runnerModel,
       corp: corpModel,
+      current: currentCard
     )
 

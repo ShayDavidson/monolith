@@ -1,3 +1,4 @@
+- Consistent appearance of tokens on card (move to view model).
 - Current.
 - 90deg cards (ICE) & Pile rows.
 - Trash and R&D pile (icon).
