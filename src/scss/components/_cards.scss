@@ -7,34 +7,20 @@
   width: auto; // determined by code.
   height: 100%;
   position: absolute;
-  z-index: $z-index-card;
   background-size: cover;
+  z-index: $z-index-card;
 
   &:not(.faceUp) {
-    .runner & {
-      background-image: url('/images/cards/runner-back.jpg')
-    }
-    .corp & {
-      background-image: url('/images/cards/corp-back.jpg')
-    }
+    .runner & { background-image: url('/images/cards/runner-back.jpg'); }
+    .corp &   { background-image: url('/images/cards/corp-back.jpg'); }
   }
 
   .row & {
-    &:first-child,  {
-      @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-first-in-pile));
-    }
-
-    &:not(:first-child) {
-      @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-pile));
-    }
+    &:first-child       { @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-first-in-pile)); }
+    &:not(:first-child) { @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-pile)); }
 
     .left &  { @include transform(rotate(90deg)); }
     .right & { @include transform(rotate(-90deg)); }
-  }
-
-  .tokens {
-    width: 100%;
-    height: 100%;
   }
 
   &.loading:before {
