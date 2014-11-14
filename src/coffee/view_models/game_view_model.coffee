@@ -58,10 +58,11 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     # Tokens
 
     runnerCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: 3)
+    runnerBrainDmg = new Monolith.ViewModels.TokensViewModel(type: 'brain-damage', amount: 1)
     corpCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: 15)
     corpBadPub = new Monolith.ViewModels.TokensViewModel(type: 'bad-publicity', amount: 1)
 
-    runnerTokens = new Monolith.ViewModels.TokensViewCollection([runnerCredits])
+    runnerTokens = new Monolith.ViewModels.TokensViewCollection([runnerCredits, runnerBrainDmg])
     corpTokens = new Monolith.ViewModels.TokensViewCollection([corpCredits, corpBadPub])
 
     # Build board
