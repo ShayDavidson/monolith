@@ -1,33 +1,26 @@
-$player-info-height: 60%;
-$credits-region-width: 18%;
-$tags-bp-region-width: 28%;
-$brain-dmg-region-width: 15%;
-
 .player-info {
-  width: 100%;
-  height: $player-info-height;
   position: relative;
-  top: 100% - $player-info-height;
+  width: 100%;
+  height: $player-info-relative-height;
+  top: 100% - $player-info-relative-height;
 
   .left & { direction: rtl; }
   .right & { direction: ltr; }
 }
 
 .credits-region {
-  width: $credits-region-width;
-  height: 100%;
+  width: $player-info-credits-width;
 }
 
 .tags-bp-region {
-  width: $tags-bp-region-width;
-  height: 100%;
+  width: $player-info-tags-width;
 }
 
 .brain-dmg-region {
-  width: $brain-dmg-region-width;
-  height: 100%;
+  width: $player-info-damage-width;
 }
 
 .info-region {
   @include inline-block();
+  height: 100%;
 }
