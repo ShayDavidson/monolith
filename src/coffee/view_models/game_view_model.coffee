@@ -1,13 +1,14 @@
 class Monolith.ViewModels.GameViewModel extends Backbone.Model
   defaults:
-    runner: null
-    corp: null
+    runner:  null
+    corp:    null
     current: null
 
   isRunnerOnLeft: ->
     @get('runner').get('side') == 'left'
 
   @defaultGame: ->
+
     ## Corp
 
     corpId    = new Monolith.ViewModels.CardViewModel(cardId: '04097', faceUp: true) # GRNDL
@@ -16,7 +17,6 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     corpHand3 = new Monolith.ViewModels.CardViewModel(cardId: '01099', faceUp: true) # Scorched Earth
     corpHand4 = new Monolith.ViewModels.CardViewModel(cardId: '01099', faceUp: true) # Scorched Earth
     corpHand5 = new Monolith.ViewModels.CardViewModel(cardId: '01090', faceUp: true) # Tollbooth
-
     corpTrash1 = new Monolith.ViewModels.CardViewModel(cardId: '04040', faceUp: true) # Restructure
 
     ## Runner
@@ -26,7 +26,6 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     runnerHand2 = new Monolith.ViewModels.CardViewModel(cardId: '02047', faceUp: true) # Test Run
     runnerHand3 = new Monolith.ViewModels.CardViewModel(cardId: '04047', faceUp: true) # Torch
     runnerHand4 = new Monolith.ViewModels.CardViewModel(cardId: '01034', faceUp: true) # Diesel
-
     runnerResourceTokens = new Monolith.ViewModels.TokensViewCollection([new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: 3)])
     runnerResource = new Monolith.ViewModels.CardViewModel(cardId: '02091', faceUp: true, tokens: runnerResourceTokens) # Kati Jones
 
@@ -39,8 +38,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
     lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
 
-    runnerDeck = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
-    corpDeck = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+    runnerMainRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+    corpMainRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
 
     runnerIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerId]))
     corpIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpId]))
@@ -49,8 +48,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
 
     runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerResource]))
 
-    runnerRows = new Monolith.ViewModels.RowViewCollection([runnerTempRow, runnerIdRow, runnerDeck, lastNoCardsRow])
-    corpRows = new Monolith.ViewModels.RowViewCollection([firstNoCardsRow, corpIdRow, corpDeck, corpTrash])
+    runnerRows = new Monolith.ViewModels.RowViewCollection([runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow])
+    corpRows = new Monolith.ViewModels.RowViewCollection([firstNoCardsRow, corpIdRow, corpMainRow, corpTrash])
 
     runnerHand = new Monolith.ViewModels.CardViewCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
     corpHand = new Monolith.ViewModels.CardViewCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])

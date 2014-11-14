@@ -1,11 +1,16 @@
-## FEATURES
-- ICE, piles, hosted cards.
+## MARKDOWN
+- Facedown cards.
+
+## TRANSLATION
 - "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
+
+## BOARD VIEW
+- ICE, piles, hosted cards.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
-- Better looking MD editor.
 
 ## POLISH
 - Markdown should be namespaced under services.
+- Better looking MD editor.
 - Trash and R&D row (icon).
 - Tooltips (no for unknown cards, name) and cool cursors: http://chrisnager.github.io/cursors/)
 - Mobile (tapping - make it work).
