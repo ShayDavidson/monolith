@@ -7,10 +7,7 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
   isRunnerOnLeft: ->
     @get('runner').get('side') == 'left'
 
-
   @defaultGame: ->
-    # Cards
-
     ## Corp
 
     corpId    = new Monolith.ViewModels.CardViewModel(cardId: '04097', faceUp: true) # GRNDL

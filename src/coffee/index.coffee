@@ -15,7 +15,6 @@ $ ->
 
   # Editor
   markdown = new Monolith.Models.Markdown()
-  window.markdown = markdown
   markdownView = new Monolith.Views.MarkdownView(model: markdown)
 
   gameViewModel = Monolith.ViewModels.GameViewModel.defaultGame()
@@ -44,7 +43,6 @@ $ ->
     corpView.render()
     $(window).trigger('resize')
   )
-
 
   # Events
 
