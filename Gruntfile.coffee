@@ -56,5 +56,5 @@ module.exports = (grunt) ->
   grunt.loadNpmTasks('grunt-contrib-imagemin')
   grunt.loadNpmTasks('grunt-contrib-watch')
 
-  grunt.registerTask('compile', ['compass', 'coffee', 'haml'])
+  grunt.registerTask('compile', ['compass', 'coffee', 'haml', 'imagemin'])
   grunt.registerTask('default', ['compile', 'watch'])

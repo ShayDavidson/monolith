@@ -30,27 +30,27 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     runnerResourceTokens = new Monolith.ViewModels.TokensViewCollection([new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: 3)])
     runnerResource = new Monolith.ViewModels.CardViewModel(cardId: '02091', faceUp: true, tokens: runnerResourceTokens) # Kati Jones
 
-    # Piles
+    # Rows
 
     decksArray = []
     _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
 
     noCards = new Monolith.ViewModels.CardViewCollection()
-    firstNoCardsPile = new Monolith.ViewModels.PileViewModel(cards: noCards)
-    lastNoCardsPile = new Monolith.ViewModels.PileViewModel(cards: noCards)
+    firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
+    lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
 
-    runnerDeck = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
-    corpDeck = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+    runnerDeck = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+    corpDeck = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
 
-    runnerIdPile = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerId]))
-    corpIdPile = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpId]))
+    runnerIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerId]))
+    corpIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpId]))
 
-    corpTrash = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpTrash1]))
+    corpTrash = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpTrash1]))
 
-    runnerTempPile = new Monolith.ViewModels.PileViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerResource]))
+    runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerResource]))
 
-    runnerPiles = new Monolith.ViewModels.PileViewCollection([runnerTempPile, runnerIdPile, runnerDeck, lastNoCardsPile])
-    corpPiles = new Monolith.ViewModels.PileViewCollection([firstNoCardsPile, corpIdPile, corpDeck, corpTrash])
+    runnerRows = new Monolith.ViewModels.RowViewCollection([runnerTempRow, runnerIdRow, runnerDeck, lastNoCardsRow])
+    corpRows = new Monolith.ViewModels.RowViewCollection([firstNoCardsRow, corpIdRow, corpDeck, corpTrash])
 
     runnerHand = new Monolith.ViewModels.CardViewCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
     corpHand = new Monolith.ViewModels.CardViewCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
@@ -66,8 +66,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
 
     # Build board
 
-    runnerModel = new Monolith.ViewModels.PlayerViewModel(type: 'runner', side: 'left', piles: runnerPiles, hand: runnerHand, tokens: runnerTokens)
-    corpModel = new Monolith.ViewModels.PlayerViewModel(type: 'corp', side: 'right', piles: corpPiles, hand: corpHand, tokens: corpTokens)
+    runnerModel = new Monolith.ViewModels.PlayerViewModel(type: 'runner', side: 'left', rows: runnerRows, hand: runnerHand, tokens: runnerTokens)
+    corpModel = new Monolith.ViewModels.PlayerViewModel(type: 'corp', side: 'right', rows: corpRows, hand: corpHand, tokens: corpTokens)
     currentCard = new Monolith.ViewModels.CardViewModel(cardId: '06034', faceUp: true) # Scrubbed
 
     game = new Monolith.ViewModels.GameViewModel(

@@ -1,5 +1,5 @@
 $player-border-color: rgba(47, 47, 47, 0.75);
-$piles-region-height: 80%;
+$rows-region-height: 80%;
 
 .player {
   $border-radius: $global-padding;
@@ -21,9 +21,9 @@ $piles-region-height: 80%;
   }
 }
 
-.piles-region {
+.rows-region {
   width: 100%;
-  height: $piles-region-height;
+  height: $rows-region-height;
 }
 
 .hand-region {
@@ -44,6 +44,6 @@ $piles-region-height: 80%;
 .player-info-region {
   margin-top: $global-padding;
   width: 100%;
-  height: calc(#{100% - $piles-region-height} - #{$global-padding});
+  height: calc(#{100% - $rows-region-height} - #{$global-padding});
   @include box-sizing(border-box);
 }
