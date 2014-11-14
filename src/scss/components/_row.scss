@@ -1,0 +1,26 @@
+.rows {
+  width: 100%;
+  height: 100%;
+
+  @include display-flex;
+  @include flex-direction(column);
+
+  .left & { direction: ltr; }
+  .right & { direction: rtl; }
+}
+
+.row {
+  $row-vertical-margin: 4px;
+  $row-initial-horizontal-margin: 20px;
+
+  margin-bottom: $row-vertical-margin;
+  &:last-child { margin-bottom: 0; }
+
+  display: flex;
+  position: relative;
+  @include flex(1);
+  @include box-sizing(border-box);
+
+  .left & { margin-left: $row-initial-horizontal-margin; }
+  .right & { margin-right: $row-initial-horizontal-margin; }
+}
