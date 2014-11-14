@@ -25,4 +25,13 @@
   width: 100%;
   top: 0;
   left: 0;
+
+  .card {
+    @include transform(scaleY(-1));
+    height: $current-relative-height;
+    top: $current-relative-hiddening;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
 }

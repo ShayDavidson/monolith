@@ -16,7 +16,22 @@ $player-hand-relative-size: 19vh;
 
 $card-aspect-ratio: 0.706;
 $card-shadow-distance: -0.3px;
+$card-shadow-size: 1px;
+$card-shadow-blur: 1px;
+$card-shadow-alpha: 0.35;
+$card-shadow-alpha-first-in-pile: 0.35;
+$card-shadow-alpha-pile: 0.12;
 $card-border-radius: 6%;
+$card-spinner-duration: 1s;
+$card-spinner-size: 40px;
+
+
+// ZOOMED CARD
+
+$zoomed-card-height: 440px;
+$zoomed-card-shadow-size: 300px;
+$zoomed-card-shadow-blur: 30px;
+$zoomed-card-shadow-alpha: 0.9;
 
 // TOKENS
 
@@ -39,6 +54,13 @@ $player-info-credits-width: 18%;
 $player-info-tags-width: 28%;
 $player-info-damage-width: 15%;
 
-// Z-INDEX:
+// CURRENT
 
+$current-relative-height: 19vh;
+$current-relative-hiddening: -12vh;
+
+// Z-INDICES
+
+$z-index-card: 1000;
 $z-index-hand: 1100;
+$z-index-zoomed-card: 5000;
