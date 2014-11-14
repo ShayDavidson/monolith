@@ -1,4 +1,4 @@
-$global-padding: 6px;
+@import 'mixins/variables';
 
 @import 'compass';
 @import 'compass/css3/flexbox';
@@ -14,7 +14,6 @@ $global-padding: 6px;
 @import 'components/hand';
 @import 'components/tokens';
 
-@import 'components/nav';
 @import 'components/editor';
 
 body, html {
@@ -25,10 +24,7 @@ body, html {
 }
 
 body {
-  $background-size: 200px;
-
   background-image: url('/images/background.png');
-  background-size: $background-size $background-size;
-
+  background-size: $background-image-size $background-image-size;
   padding: $global-padding;
 }

@@ -1,4 +1,5 @@
 ## FEATURES
+- "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
 - 90deg cards (ICE) & Row rows.
 - Hosted cards.
