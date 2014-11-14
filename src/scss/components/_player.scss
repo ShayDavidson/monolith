@@ -1,49 +1,36 @@
-$player-border-color: rgba(47, 47, 47, 0.75);
-$rows-region-height: 80%;
-
 .player {
-  $border-radius: $global-padding;
-  $background-alpha: 0.075;
+  @include box-sizing(border-box);
+  @include border-radius($global-padding);
 
   width: 100%;
   height: 100%;
   border: 1px dashed $player-border-color;
   padding: $global-padding;
-  @include box-sizing(border-box);
-  @include border-radius($border-radius);
 
-  &.corp {
-    background-color: rgba(65, 44, 232, $background-alpha);
-  }
-
-  &.runner {
-    background-color: rgba(215, 40, 40, $background-alpha);
-  }
+  &.corp   { background-color: rgba($player-corp-color, $player-background-alpha); }
+  &.runner { background-color: rgba($player-runner-color, $player-background-alpha); }
 }
 
 .rows-region {
   width: 100%;
-  height: $rows-region-height;
+  height: $player-rows-region-height;
 }
 
 .hand-region {
   position: fixed;
   bottom: 0;
+  width: $player-hand-relative-size;
+  height: $player-hand-relative-size;
+  z-index: $z-index-hand;
 
   .left & { left: 0; }
   .right & { right: 0; }
-
-  $hand-size: 19vh;
-
-  width: $hand-size;
-  height: $hand-size;
-
-  z-index: 1000;
 }
 
 .player-info-region {
+  @include box-sizing(border-box);
+
   margin-top: $global-padding;
   width: 100%;
-  height: calc(#{100% - $rows-region-height} - #{$global-padding});
-  @include box-sizing(border-box);
+  height: calc(#{100% - $player-rows-region-height} - #{$global-padding});
 }

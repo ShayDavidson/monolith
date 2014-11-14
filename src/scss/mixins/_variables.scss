@@ -3,6 +3,15 @@
 $global-padding: 6px;
 $background-image-size: 200px;
 
+// PLAYER
+
+$player-border-color: rgba(47, 47, 47, 0.75);
+$player-background-alpha: 0.075;
+$player-rows-region-height: 80%;
+$player-corp-color: rgb(65, 44, 232);
+$player-runner-color: rgb(215, 40, 40);
+$player-hand-relative-size: 19vh;
+
 // CARDS
 
 $card-aspect-ratio: 0.706;
@@ -20,3 +29,7 @@ $player-info-relative-height: 60%;
 $player-info-credits-width: 18%;
 $player-info-tags-width: 28%;
 $player-info-damage-width: 15%;
+
+// Z-INDEX:
+
+$z-index-hand: 1100;
