@@ -5,39 +5,33 @@
 }
 
 .token {
-  $token-percent: 40%;
-  $token-percent-in-card: 18%;
-  position: absolute;
-  height: $token-percent;
-  background-color: black;
-
-  .card & {
-    height: $token-percent-in-card;
-  }
-
   @include box-shadow(-1px -1px 1px 1px rgba(0, 0, 0, 0.5));
 
-  $random-range: 40;
-  @for $i from 0 through $random-range {
+  position: absolute;
+  height: $token-relative-size;
+  background-color: black;
+
+  @for $i from 0 through $tokens-rotation-classes {
     &.random-transform-#{$i} {
-      $deg: (-$random-range / 2) + ($i * 2);
+      $deg: (-$tokens-rotation-classes / 2) + ($i * 2);
       @include transform(rotate(#{$deg}deg));
     }
   }
 
+  .card & {
+    height: $token-relative-size-in-card;
+  }
+
   &.credit, &.virus, &.generic, &.advancement {
-    @include border-radius(100%);
+    @include border-radius($tokens-round-border-radius);
   }
 
   &.tag, &.bad-publicity {
-    @include border-radius(15%);
+    @include border-radius($tokens-square-border-radius);
   }
 
   &.brain-damage {
-    @include border-top-left-radius(135%);
-    @include border-top-right-radius(195%);
-    @include border-bottom-left-radius(190%);
-    @include border-bottom-right-radius(165%);
+    @include border-radius($tokens-brain-damage-border-radius);
   }
 
 }
