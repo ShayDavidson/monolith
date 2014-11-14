@@ -8,26 +8,30 @@ $background-image-size: 200px;
 $player-border-color: rgba(47, 47, 47, 0.75);
 $player-background-alpha: 0.075;
 $player-rows-region-height: 80%;
+$player-hand-relative-size: 19vh;
+
 $player-corp-color: rgb(65, 44, 232);
 $player-runner-color: rgb(215, 40, 40);
-$player-hand-relative-size: 19vh;
 
 // CARDS
 
 $card-aspect-ratio: 0.706;
+$card-border-radius: 6%;
+
 $card-shadow-distance: -0.3px;
 $card-shadow-size: 1px;
 $card-shadow-blur: 1px;
 $card-shadow-alpha: 0.35;
 $card-shadow-alpha-first-in-pile: 0.35;
 $card-shadow-alpha-pile: 0.12;
-$card-border-radius: 6%;
+
 $card-spinner-duration: 1s;
 $card-spinner-size: 40px;
 
 // ZOOMED CARD
 
 $zoomed-card-height: 440px;
+
 $zoomed-card-shadow-size: 300px;
 $zoomed-card-shadow-blur: 30px;
 $zoomed-card-shadow-alpha: 0.9;
@@ -35,8 +39,10 @@ $zoomed-card-shadow-alpha: 0.9;
 // TOKENS
 
 $tokens-rotation-classes: 40;
+
 $token-relative-size: 40%;
 $token-relative-size-in-card: 18%;
+
 $tokens-round-border-radius: 100%;
 $tokens-square-border-radius: 15%;
 $tokens-brain-damage-border-radius: 135% 195% 190% 165%;
@@ -49,6 +55,7 @@ $row-vertical-margin: 4px;
 // PLAYER-INFO
 
 $player-info-relative-height: 60%;
+
 $player-info-credits-width: 18%;
 $player-info-tags-width: 28%;
 $player-info-damage-width: 15%;
