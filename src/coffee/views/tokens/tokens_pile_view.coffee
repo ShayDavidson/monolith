@@ -1,28 +1,25 @@
+class Monolith.Views.TokenView extends Backbone.Marionette.ItemView
+  className: 'token'
+
 class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
   template: false
   className: 'tokens-pile'
 
   TOKEN_TEMPLATE =  $('#token-view-template').html()
-
   ROTATION_RANDOM_RANGE = 40
-
-  PLACEMENT_PERCENT_MARGINS = 30
-  HALF_TOKEN_SIZE_PERCENT = 20
 
   onRender: ->
     @_renderTokens()
 
   _renderTokens: ->
-    _.times(@model.get('amount'), =>
-      @$el.append(@_createTokenElement())
+    _.times(@model.get('amount'), (index) =>
+      @$el.append(@_createTokenElement(index))
     )
 
-  _createTokenElement: ->
+  _createTokenElement: (index) ->
+    position = @model.positionForIndex[index]
     tokenEl = $(TOKEN_TEMPLATE)
     tokenEl.attr(src: @model.imagePath())
-    tokenEl.css(top: "#{@_randomPercentageForPlacement()}%", left: "#{@_randomPercentageForPlacement()}%")
+    tokenEl.css(top: "#{position.top}%", left: "#{position.left}%")
     tokenEl.addClass("random-transform-#{Math.floor(Math.random() * ROTATION_RANDOM_RANGE)}")
     tokenEl.addClass(@model.get('type'))
-
-  _randomPercentageForPlacement: ->
-    Math.random() * (100 - (2 * PLACEMENT_PERCENT_MARGINS)) + PLACEMENT_PERCENT_MARGINS - HALF_TOKEN_SIZE_PERCENT
