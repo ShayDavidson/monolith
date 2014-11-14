@@ -1,5 +1,5 @@
 class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
-  template: 'none'
+  template: false
   className: 'tokens-pile'
 
   TOKEN_TEMPLATE =  $('#token-view-template').html()
