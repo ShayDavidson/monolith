@@ -33,7 +33,7 @@ $card-aspect-ratio: 0.706;
   }
 
   .current-region & {
-    height: 17vh;
+    height: 19vh;
     @include transform(scaleY(-1));
     left: 0;
     right: 0;
