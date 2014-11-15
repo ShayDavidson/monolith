@@ -35,18 +35,18 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
 
     noCards = []
-    firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
-    lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
+    firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cardsCollections: noCards)
+    lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cardsCollections: noCards)
 
-    runnerMainRow = new Monolith.ViewModels.RowViewModel(cards: decksArray)
-    corpMainRow = new Monolith.ViewModels.RowViewModel(cards: decksArray)
+    runnerMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
+    corpMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
 
-    runnerIdRow = new Monolith.ViewModels.RowViewModel(cards: [runnerId])
-    corpIdRow = new Monolith.ViewModels.RowViewModel(cards: [corpId])
+    runnerIdRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [runnerId])
+    corpIdRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [corpId])
 
-    corpTrash = new Monolith.ViewModels.RowViewModel(cards: [corpTrash1])
+    corpTrash = new Monolith.ViewModels.RowViewModel(cardsCollections: [corpTrash1])
 
-    runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: [runnerResource])
+    runnerTempRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [runnerResource])
 
     runnerRows = [runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow]
     corpRows = [firstNoCardsRow, corpIdRow, corpMainRow, corpTrash]

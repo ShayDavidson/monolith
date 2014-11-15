@@ -40,7 +40,7 @@ class Monolith.Models.Markdown extends Backbone.Model
 #    if card.hostedCards().length > 0
 #      row = @cardToRow(card.hostedCards().first())
 #      cardsCollection.add(row.get('cards').models)
-    new Monolith.ViewModels.RowViewModel(cards: cardsCollection)
+    new Monolith.ViewModels.RowViewModel(cardsCollections: cardsCollection)
 
   translate: ->
     game = Monolith.Markdown.MarkdownParser.parse(@get('text'))
@@ -50,7 +50,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     deckRow = ->
       decksArray = []
       _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
-      new Monolith.ViewModels.RowViewModel(cards: decksArray)
+      new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
 
     # CURRENT
     currentCardModel = game.get('current')
@@ -71,7 +71,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     runnerPlayer.heap().forEach (card) =>
       heapCards.push(@cardToViewModel(card))
     runnerHeap = heapCards
-    runnerHeapRow = new Monolith.ViewModels.RowViewModel(cards: runnerHeap)
+    runnerHeapRow = new Monolith.ViewModels.RowViewModel(cardsCollections: runnerHeap)
 
     runnerCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: runnerPlayer.get('credits'))
     runnerTags = new Monolith.ViewModels.TokensViewModel(type: 'tag', amount: runnerPlayer.get('tags'))
@@ -79,7 +79,7 @@ class Monolith.Models.Markdown extends Backbone.Model
 
     runnerIdentity = runnerPlayer.get('identity')
     if runnerIdentity
-      runnerIDRow = new Monolith.ViewModels.RowViewModel(cards: [@cardToViewModel(runnerIdentity)])
+      runnerIDRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [@cardToViewModel(runnerIdentity)])
     else
       runnerIDRow = emptyRow()
 
