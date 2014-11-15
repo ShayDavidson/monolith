@@ -22,6 +22,9 @@
       .left &  { @include transform(rotate(90deg));  }
       .right & { @include transform(rotate(-90deg)); }
     }
+
+    height: auto;
+    position: static;
   }
 
   &.loading:before {

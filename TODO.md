@@ -6,9 +6,11 @@
 - Corp translation.
 
 ## BOARD VIEW
-- Refactor tokens for simplicity.
 - Transform on markdown collection<->array.
-- ICE, piles, hosted cards.
+- Refactor tokens for simplicity.
+- Hosted cards.
+- Scored agenda.
+- Removed from game cards.
 
 ## POLISH
 - Nice nav bar (with tab to open it?) - with title, info, md editor.

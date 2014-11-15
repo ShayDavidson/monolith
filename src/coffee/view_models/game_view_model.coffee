@@ -33,6 +33,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     runnerResourceTokens = new Monolith.ViewModels.TokensViewCollection([new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: 3)])
     runnerResource = new Monolith.ViewModels.CardViewModel(cardId: '02091', faceUp: true, tokens: runnerResourceTokens) # Kati Jones
 
+    runnerHardware = new Monolith.ViewModels.CardViewModel(cardId: '03036', faceUp: true) # Monolith
+
     # Rows
 
     decksArray = []
@@ -42,8 +44,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cardsCollections: noCards)
     lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cardsCollections: noCards)
 
-    runnerMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
-    corpMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
+    runnerMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [decksArray, runnerHardware])
+    corpMainRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [decksArray, corpIce1, corpIce2])
 
     runnerIdRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [runnerId])
     corpIdRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [corpId])
