@@ -35,22 +35,22 @@ class Monolith.Models.Markdown extends Backbone.Model
     new Monolith.ViewModels.CardViewModel(opts)
 
   cardToRow: (card) ->
-    cardsCollection = [@cardToViewModel(card)]
+    cardPiles = [@cardToViewModel(card)]
 #    TODO: Return when hosting is working again
 #    if card.hostedCards().length > 0
 #      row = @cardToRow(card.hostedCards().first())
 #      cardsCollection.add(row.get('cards').models)
-    new Monolith.ViewModels.RowViewModel(cardsCollections: cardsCollection)
+    new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(cardPiles))
 
   translate: ->
     game = Monolith.Markdown.MarkdownParser.parse(@get('text'))
     @set('game', game)
 
-    emptyRow = []
+    emptyRow = -> new Backbone.Collection([])
     deckRow = ->
       decksArray = []
       _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
-      new Monolith.ViewModels.RowViewModel(cardsCollections: decksArray)
+      new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(decksArray))
 
     # CURRENT
     currentCardModel = game.get('current')
@@ -71,7 +71,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     runnerPlayer.heap().forEach (card) =>
       heapCards.push(@cardToViewModel(card))
     runnerHeap = heapCards
-    runnerHeapRow = new Monolith.ViewModels.RowViewModel(cardsCollections: runnerHeap)
+    runnerHeapRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(runnerHeap))
 
     runnerCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: runnerPlayer.get('credits'))
     runnerTags = new Monolith.ViewModels.TokensViewModel(type: 'tag', amount: runnerPlayer.get('tags'))
@@ -79,7 +79,7 @@ class Monolith.Models.Markdown extends Backbone.Model
 
     runnerIdentity = runnerPlayer.get('identity')
     if runnerIdentity
-      runnerIDRow = new Monolith.ViewModels.RowViewModel(cardsCollections: [@cardToViewModel(runnerIdentity)])
+      runnerIDRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([@cardToViewModel(runnerIdentity)]))
     else
       runnerIDRow = emptyRow()
 

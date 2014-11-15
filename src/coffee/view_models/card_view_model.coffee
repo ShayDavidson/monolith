@@ -1,10 +1,10 @@
 class Monolith.ViewModels.CardViewModel extends Backbone.Model
   defaults:
     cardId: null
-    faceUp: false
-    ice: false
     tokens: null
     hosted: null
+    faceUp: false
+    ice:    false
 
   CARD_IMG_PATH = 'http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/'
   CARD_IMG_SUFFIX = '.png'

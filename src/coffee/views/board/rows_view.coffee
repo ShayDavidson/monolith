@@ -6,7 +6,7 @@ class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
   ROW_CARD_OFFSET = 0.3
   BASE_WINDOW_HEIGHT = 750
 
-  initialize: (options) ->
+  initialize: ->
     $(window).resize(=> @_setRowCardOffset())
 
   onShow: ->
@@ -29,7 +29,7 @@ class Monolith.Views.RowsView extends Backbone.Marionette.CollectionView
   className: 'rows'
   childView: Monolith.Views.RowView
   childViewOptions: (row) ->
-    collection: row.get('cardsCollections')
+    collection: row.get('cardPiles')
     side: @options.side
 
   BASE_Z_INDEX = 2000
