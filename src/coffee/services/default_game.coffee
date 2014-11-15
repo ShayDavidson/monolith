@@ -23,7 +23,7 @@ class Monolith.Services.DefaultGame
     runnerHand3 = @faceUpCard('04047', faceUp: true) # Torch
     runnerHand4 = @faceUpCard('01034', faceUp: true) # Diesel
     runnerCard1 = @faceUpCard('03036', faceUp: true) # Monolith
-    runnerCard2 = @faceUpCard('02091', faceUp: true, tokens: @tokensCollection([@tokens('credits', 3)])) # Kati Jones
+    runnerCard2 = @faceUpCard('02091', faceUp: true, tokens: @tokensCollection([@tokens('credit', 3)])) # Kati Jones
 
     # Decks
 
@@ -72,6 +72,10 @@ class Monolith.Services.DefaultGame
     new Monolith.ViewModels.GameViewModel(options)
 
   @row: (piles = []) ->
+    piles = _.map(piles, (cards) ->
+      cards = [cards] unless _.isArray(cards)
+      new Monolith.ViewModels.PileViewModel(cards: new Backbone.Collection(cards))
+    )
     new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(piles))
 
   @rows: (rows) ->
@@ -96,6 +100,3 @@ class Monolith.Services.DefaultGame
 
   @tokensCollection: (tokens) ->
     new Monolith.ViewModels.TokensViewCollection(tokens)
-
-  @cardPile: (pileArray) ->
-    new Monolith.ViewModels.CardPileViewModel(cards: pileArray)

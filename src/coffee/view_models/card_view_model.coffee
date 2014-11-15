@@ -29,5 +29,3 @@ class Monolith.ViewModels.CardViewModel extends Backbone.Model
   _determineDefaults: ->
     @set(faceUp: false) unless @has('cardId')
 
-
-

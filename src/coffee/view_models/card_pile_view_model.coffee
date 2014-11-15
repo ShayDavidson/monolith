@@ -1,3 +1,3 @@
-class Monolith.ViewModels.CardPileViewModel extends Backbone.Model
+class Monolith.ViewModels.PileViewModel extends Backbone.Model
   defaults:
     cards: new Backbone.Collection([])

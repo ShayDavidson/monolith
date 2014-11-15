@@ -1,4 +1,4 @@
-class Monolith.Views.CardPileView extends Backbone.Marionette.CollectionView
+class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
   className: 'pile'
   childView: Monolith.Views.CardView
 

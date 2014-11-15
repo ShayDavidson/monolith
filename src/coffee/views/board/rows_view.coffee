@@ -1,6 +1,6 @@
 class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
   className: 'row'
-  childView: Monolith.Views.CardPileView
+  childView: Monolith.Views.PileView
   childViewOptions: (row) ->
     collection: row.get('cards')
     side: @options.side
