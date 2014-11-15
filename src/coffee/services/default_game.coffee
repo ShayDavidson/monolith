@@ -25,28 +25,26 @@ class Monolith.Services.DefaultGame
     runnerCard1 = @faceUpCard('03036', faceUp: true) # Monolith
     runnerCard2 = @faceUpCard('02091', faceUp: true, tokens: @tokensCollection([@tokens('credits', 3)])) # Kati Jones
 
-    # Rows
+    # Decks
 
     decksArray = []
     _.times(30, => decksArray.push(@faceDownCard()))
 
-    firstNoCardsRow = new Monolith.ViewModels.RowViewModel()
-    lastNoCardsRow = new Monolith.ViewModels.RowViewModel()
+    # Rows
 
-    runnerMainRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([decksArray, runnerCard1]))
-    corpMainRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([decksArray, corpIce1, corpIce2]))
+    runnerMainRow = @row([decksArray, runnerCard1])
+    runnerIdRow   = @row([runnerId])
+    runnerTempRow = @row([runnerCard2])
+    runnerRows    = @rows([runnerTempRow, runnerIdRow, runnerMainRow, @row()])
 
-    runnerIdRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([runnerId]))
-    corpIdRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([corpId]))
+    corpMainRow  = @row([decksArray, corpIce1, corpIce2])
+    corpIdRow    = @row([corpId])
+    corpArchives = @row([corpTrash])
+    corpRows     = @rows([@row(), corpIdRow, corpMainRow, corpArchives])
 
-    corpArchives = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([corpTrash]))
+    # Hands
 
-    runnerTempRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([runnerCard2]))
-
-    runnerRows = @rows([runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow])
     runnerHand = @cards([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
-
-    corpRows   = @rows([firstNoCardsRow, corpIdRow, corpMainRow, corpArchives])
     corpHand   = @cards([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
 
     # Tokens
@@ -72,6 +70,9 @@ class Monolith.Services.DefaultGame
 
   @game: (options) ->
     new Monolith.ViewModels.GameViewModel(options)
+
+  @row: (piles = []) ->
+    new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(piles))
 
   @rows: (rows) ->
     new Backbone.Collection(rows)
