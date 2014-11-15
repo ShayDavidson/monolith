@@ -1,3 +1,6 @@
 .pile {
-
+  &.non-ice {
+    .left &  { @include transform(rotate(90deg));  }
+    .right & { @include transform(rotate(-90deg)); }
+  }
 }

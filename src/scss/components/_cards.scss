@@ -15,13 +15,9 @@
     .corp &   { background-image: url('/images/cards/corp-back.jpg'); }
   }
 
-  .row & {
+  .pile & {
     &:first-child       { @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-first-in-pile)); }
     &:not(:first-child) { @include box-shadow($card-shadow-distance $card-shadow-distance $card-shadow-size $card-shadow-blur rgba(0, 0, 0, $card-shadow-alpha-pile)); }
-    &.non-ice {
-      .left &  { @include transform(rotate(90deg));  }
-      .right & { @include transform(rotate(-90deg)); }
-    }
   }
 
   &.loading:before {

@@ -4,31 +4,31 @@ class Monolith.Services.DefaultGame
 
     # Corp
 
-    corpId    = @faceUpCard('04097', faceUp: true) # GRNDL
-    corpHand1 = @faceUpCard('01086', faceUp: true) # SEA Source
-    corpHand2 = @faceUpCard('01110', faceUp: true) # Hedge Fund
-    corpHand3 = @faceUpCard('01099', faceUp: true) # Scorched Earth
-    corpHand4 = @faceUpCard('01099', faceUp: true) # Scorched Earth
-    corpHand5 = @faceUpCard('01090', faceUp: true) # Tollbooth
-    corpTrash = @faceUpCard('04040', faceUp: true) # Restructure
-    corpIce1  = @faceUpCard('01090', ice: true, faceUp: true) # Tollbooth
-    corpIce2  = @faceUpCard('02110', ice: true, faceUp: true) # Eli 1.0
+    corpId    = @faceUpCard('04097') # GRNDL
+    corpHand1 = @faceUpCard('01086') # SEA Source
+    corpHand2 = @faceUpCard('01110') # Hedge Fund
+    corpHand3 = @faceUpCard('01099') # Scorched Earth
+    corpHand4 = @faceUpCard('01099') # Scorched Earth
+    corpHand5 = @faceUpCard('01090') # Tollbooth
+    corpTrash = @faceUpCard('04040') # Restructure
+    corpIce1  = @faceUpCard('02110', ice: true) # Eli 1.0
+    corpIce2  = @faceDownCard(cardId: '01090', ice: true) # Tollbooth
     corpIce3  = @faceDownCard(ice: true)
 
     # Runner
 
-    runnerId    = @faceUpCard('03028', faceUp: true) # Kit
-    runnerHand1 = @faceUpCard('04109', faceUp: true) # Lucky Find
-    runnerHand2 = @faceUpCard('02047', faceUp: true) # Test Run
-    runnerHand3 = @faceUpCard('04047', faceUp: true) # Torch
-    runnerHand4 = @faceUpCard('01034', faceUp: true) # Diesel
-    runnerCard1 = @faceUpCard('03036', faceUp: true) # Monolith
-    runnerCard2 = @faceUpCard('02091', faceUp: true, tokens: @tokensCollection([@tokens('credit', 3)])) # Kati Jones
+    runnerId    = @faceUpCard('03028') # Kit
+    runnerHand1 = @faceUpCard('04109') # Lucky Find
+    runnerHand2 = @faceUpCard('02047') # Test Run
+    runnerHand3 = @faceUpCard('04047') # Torch
+    runnerHand4 = @faceUpCard('01034') # Diesel
+    runnerCard1 = @faceUpCard('03036') # Monolith
+    runnerCard2 = @faceUpCard('02091', tokens: @tokensCollection([@tokens('credit', 3)])) # Kati Jones
 
     # Decks
 
     decksArray = []
-    _.times(30, => decksArray.push(@faceDownCard()))
+    _.times(40, => decksArray.push(@faceDownCard()))
 
     # Rows
 

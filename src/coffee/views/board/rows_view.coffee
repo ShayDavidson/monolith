@@ -5,6 +5,14 @@ class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
     collection: row.get('cards')
     side: @options.side
 
+  BASE_PILE_Z_INDEX = 3000
+
+  onRender: ->
+    count = @children.length
+    @children.each((pileView, index) ->
+      pileView.$el.css('z-index': BASE_PILE_Z_INDEX + count - index)
+    )
+
 class Monolith.Views.RowCollectionView extends Backbone.Marionette.CollectionView
   className: 'rows'
   childView: Monolith.Views.RowView

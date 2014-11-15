@@ -12,7 +12,7 @@ class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
     )
 
   onRender: ->
-    @$el.addClass('no-ice') unless @model.get('icePile')
+    @$el.addClass('non-ice') unless @model.get('icePile')
 
   onShow: ->
     @_setRowCardOffset()
