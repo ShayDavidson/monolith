@@ -76,7 +76,7 @@ class Monolith.Services.DefaultGame
       cards = [cards] unless _.isArray(cards)
       new Monolith.ViewModels.PileViewModel(cards: new Backbone.Collection(cards))
     )
-    new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(piles))
+    new Monolith.ViewModels.RowViewModel(piles: new Backbone.Collection(piles))
 
   @rows: (rows) ->
     new Backbone.Collection(rows)

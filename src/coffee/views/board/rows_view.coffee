@@ -9,7 +9,7 @@ class Monolith.Views.RowCollectionView extends Backbone.Marionette.CollectionVie
   className: 'rows'
   childView: Monolith.Views.RowView
   childViewOptions: (row) ->
-    collection: row.get('cardPiles')
+    collection: row.get('piles')
     side: @options.side
 
   BASE_ROW_Z_INDEX = 2000
