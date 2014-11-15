@@ -48,8 +48,8 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
 
     runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerResource]))
 
-    runnerRows = new Monolith.ViewModels.RowViewCollection([runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow])
-    corpRows = new Monolith.ViewModels.RowViewCollection([firstNoCardsRow, corpIdRow, corpMainRow, corpTrash])
+    runnerRows = [runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow]
+    corpRows = [firstNoCardsRow, corpIdRow, corpMainRow, corpTrash]
 
     runnerHand = new Monolith.ViewModels.CardViewCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
     corpHand = new Monolith.ViewModels.CardViewCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])

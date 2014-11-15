@@ -87,11 +87,11 @@ net celebrity
     runnerPlayer.installed().forEach (card) =>
       installedRows.push(@cardToRow(card))
 
-    runnerRows = new Monolith.ViewModels.RowViewCollection(installedRows.concat([
+    runnerRows = installedRows.concat([
       runnerIDRow,
       deckRow(),
       runnerHeapRow,
-    ]))
+    ])
 
     @get('viewModel').get('runner').set(
       hand: runnerHand
