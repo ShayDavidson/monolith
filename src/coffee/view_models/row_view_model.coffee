@@ -1,3 +1,3 @@
 class Monolith.ViewModels.RowViewModel extends Backbone.Model
   defaults:
-    cardPiles: null
+    cardPiles: new Backbone.Collection([])
