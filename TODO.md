@@ -3,12 +3,15 @@
 
 ## TRANSLATION
 - "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
+- Corp translation.
 
 ## BOARD VIEW
+- Refactor tokens for simplicity.
+- Transform on markdown collection<->array.
 - ICE, piles, hosted cards.
-- Nice nav bar (with tab to open it?) - with title, info, md editor.
 
 ## POLISH
+- Nice nav bar (with tab to open it?) - with title, info, md editor.
 - Remove console.logs from MD.
 - Markdown should be namespaced under services.
 - Better looking MD editor.

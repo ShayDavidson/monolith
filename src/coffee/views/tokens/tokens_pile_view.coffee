@@ -1,6 +1,3 @@
-class Monolith.Views.TokenView extends Backbone.Marionette.ItemView
-  className: 'token'
-
 class Monolith.Views.TokensPileView extends Backbone.Marionette.ItemView
   template: false
   className: 'tokens-pile'
