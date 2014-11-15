@@ -1,6 +1,5 @@
 class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
   className: 'row'
-  template: '#row-view-template'
   childView: Monolith.Views.CardView
 
   ROW_CARD_OFFSET = 0.3
@@ -24,18 +23,17 @@ class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
         cardView.$el.css('margin-right': offset)
     )
 
-
-class Monolith.Views.RowsView extends Backbone.Marionette.CollectionView
+class Monolith.Views.RowCollectionView extends Backbone.Marionette.CollectionView
   className: 'rows'
   childView: Monolith.Views.RowView
   childViewOptions: (row) ->
     collection: row.get('cardPiles')
     side: @options.side
 
-  BASE_Z_INDEX = 2000
+  BASE_ROW_Z_INDEX = 2000
 
   onRender: ->
     count = @children.length
     @children.each((rowView, index) ->
-      rowView.$el.css('z-index': BASE_Z_INDEX + count - index)
+      rowView.$el.css('z-index': BASE_ROW_Z_INDEX + count - index)
     )
