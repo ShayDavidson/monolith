@@ -19,6 +19,10 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     corpHand5 = new Monolith.ViewModels.CardViewModel(cardId: '01090', faceUp: true) # Tollbooth
     corpTrash1 = new Monolith.ViewModels.CardViewModel(cardId: '04040', faceUp: true) # Restructure
 
+    corpIce1 = new Monolith.ViewModels.CardViewModel(cardId: '01090', ice: true, faceUp: true) # Tollbooth
+    corpIce2 = new Monolith.ViewModels.CardViewModel(cardId: '02110', ice: true, faceUp: true) # Eli 1.0
+    corpIce3 = new Monolith.ViewModels.CardViewModel(ice: true)
+
     ## Runner
 
     runnerId    = new Monolith.ViewModels.CardViewModel(cardId: '03028', faceUp: true) # Kit
