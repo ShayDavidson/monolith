@@ -10,7 +10,6 @@ class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
   onRender: ->
     @_renderTokens()
     @_renderPreloading()
-    @_setOrienation()
 
   _renderTokens: ->
     @tokens.show(new Monolith.Views.TokensPileView(model: @model.get('tokens').sample())) if @model.has('tokens')
@@ -21,9 +20,6 @@ class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
       @model.preloadImage().then(=> @_onImageLoaded())
     else
       @$el.removeClass('faceUp').css('background-image': '')
-
-  _setOrienation: ->
-    @$el.addClass('non-ice') unless @model.get('ice')
 
   _showLoadingSpinner: ->
     setTimeout((=>
