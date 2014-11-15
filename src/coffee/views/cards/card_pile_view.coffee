@@ -1,4 +1,4 @@
-class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
+class Monolith.Views.CardPileView extends Backbone.Marionette.CollectionView
   className: 'row'
   template: '#row-view-template'
   childView: Monolith.Views.CardView
@@ -7,6 +7,7 @@ class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
   BASE_WINDOW_HEIGHT = 750
 
   initialize: (options) ->
+    @collection = options.model.get('cardsCollections')
     $(window).resize(=> @_setRowCardOffset())
 
   onShow: ->
@@ -22,20 +23,4 @@ class Monolith.Views.RowView extends Backbone.Marionette.CollectionView
         cardView.$el.css('margin-left': offset)
       else
         cardView.$el.css('margin-right': offset)
-    )
-
-
-class Monolith.Views.RowsView extends Backbone.Marionette.CollectionView
-  className: 'rows'
-  childView: Monolith.Views.RowView
-  childViewOptions: (row) ->
-    collection: row.get('cardsCollections')
-    side: @options.side
-
-  BASE_Z_INDEX = 2000
-
-  onRender: ->
-    count = @children.length
-    @children.each((rowView, index) ->
-      rowView.$el.css('z-index': BASE_Z_INDEX + count - index)
     )
