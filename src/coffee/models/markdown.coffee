@@ -1,22 +1,22 @@
 class Monolith.Models.Markdown extends Backbone.Model
   defaults:
     text: """
-#runner @ kit
-3 credits
-installed
-	cache
-		7 virus counters
-	datasucker
-		2 virus
-	dinosaurus
-		yog.0
-grip
-	sure gamble
-	parasite
+       #runner @ kit
+       3 credits
+       installed
+         cache
+           7 virus counters
+         datasucker
+           2 virus
+         dinosaurus
+           yog.0
+       grip
+         sure gamble
+         parasite
 
-#current
-net celebrity
-"""
+       #current
+       net celebrity
+     """
     game: null
     viewModel: null
 
@@ -35,7 +35,7 @@ net celebrity
     new Monolith.ViewModels.CardViewModel(opts)
 
   cardToRow: (card) ->
-    cardsCollection = new Monolith.ViewModels.CardViewCollection([@cardToViewModel(card)])
+    cardsCollection = [@cardToViewModel(card)]
 #    TODO: Return when hosting is working again
 #    if card.hostedCards().length > 0
 #      row = @cardToRow(card.hostedCards().first())
@@ -46,11 +46,11 @@ net celebrity
     game = Monolith.Markdown.MarkdownParser.parse(@get('text'))
     @set('game', game)
 
-    emptyRow = -> new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection())
+    emptyRow = []
     deckRow = ->
       decksArray = []
       _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
-      new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+      new Monolith.ViewModels.RowViewModel(cards: decksArray)
 
     # CURRENT
     currentCardModel = game.get('current')
@@ -65,12 +65,12 @@ net celebrity
     handCards = []
     runnerPlayer.grip().forEach (card) =>
       handCards.push(@cardToViewModel(card))
-    runnerHand = new Monolith.ViewModels.CardViewCollection(handCards)
+    runnerHand = handCards
 
     heapCards = []
     runnerPlayer.heap().forEach (card) =>
       heapCards.push(@cardToViewModel(card))
-    runnerHeap = new Monolith.ViewModels.CardViewCollection(heapCards)
+    runnerHeap = heapCards
     runnerHeapRow = new Monolith.ViewModels.RowViewModel(cards: runnerHeap)
 
     runnerCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: runnerPlayer.get('credits'))
@@ -79,7 +79,7 @@ net celebrity
 
     runnerIdentity = runnerPlayer.get('identity')
     if runnerIdentity
-      runnerIDRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([@cardToViewModel(runnerIdentity)]))
+      runnerIDRow = new Monolith.ViewModels.RowViewModel(cards: [@cardToViewModel(runnerIdentity)])
     else
       runnerIDRow = emptyRow()
 
@@ -94,7 +94,7 @@ net celebrity
     ])
 
     @get('viewModel').get('runner').set(
-      hand: runnerHand
+      hand: new Backbone.Collection(runnerHand)
+      rows: new Backbone.Collection(runnerRows)
       tokens: runnerTokens
-      rows: runnerRows
     )

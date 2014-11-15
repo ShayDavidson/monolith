@@ -9,6 +9,7 @@
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
 
 ## POLISH
+- Remove console.logs from MD.
 - Markdown should be namespaced under services.
 - Better looking MD editor.
 - Trash and R&D row (icon).

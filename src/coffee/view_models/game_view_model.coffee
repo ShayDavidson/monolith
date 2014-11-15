@@ -34,25 +34,25 @@ class Monolith.ViewModels.GameViewModel extends Backbone.Model
     decksArray = []
     _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
 
-    noCards = new Monolith.ViewModels.CardViewCollection()
+    noCards = []
     firstNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
     lastNoCardsRow = new Monolith.ViewModels.RowViewModel(cards: noCards)
 
-    runnerMainRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
-    corpMainRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection(decksArray))
+    runnerMainRow = new Monolith.ViewModels.RowViewModel(cards: decksArray)
+    corpMainRow = new Monolith.ViewModels.RowViewModel(cards: decksArray)
 
-    runnerIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerId]))
-    corpIdRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpId]))
+    runnerIdRow = new Monolith.ViewModels.RowViewModel(cards: [runnerId])
+    corpIdRow = new Monolith.ViewModels.RowViewModel(cards: [corpId])
 
-    corpTrash = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([corpTrash1]))
+    corpTrash = new Monolith.ViewModels.RowViewModel(cards: [corpTrash1])
 
-    runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: new Monolith.ViewModels.CardViewCollection([runnerResource]))
+    runnerTempRow = new Monolith.ViewModels.RowViewModel(cards: [runnerResource])
 
     runnerRows = [runnerTempRow, runnerIdRow, runnerMainRow, lastNoCardsRow]
     corpRows = [firstNoCardsRow, corpIdRow, corpMainRow, corpTrash]
 
-    runnerHand = new Monolith.ViewModels.CardViewCollection([runnerHand1, runnerHand2, runnerHand3, runnerHand4])
-    corpHand = new Monolith.ViewModels.CardViewCollection([corpHand1, corpHand2, corpHand3, corpHand4, corpHand5])
+    runnerHand = [runnerHand1, runnerHand2, runnerHand3, runnerHand4]
+    corpHand = [corpHand1, corpHand2, corpHand3, corpHand4, corpHand5]
 
     # Tokens
 

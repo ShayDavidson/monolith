@@ -11,4 +11,8 @@ class Monolith.ViewModels.PlayerViewModel extends Backbone.Model
     tags: 0
 
   initialize: ->
-    @set('rows', new Backbone.Collection(@get('rows')))
+    @_transformToCollection('rows')
+    @_transformToCollection('hand')
+
+  _transformToCollection: (attr) ->
+    @set(attr, new Backbone.Collection(@get(attr)))
