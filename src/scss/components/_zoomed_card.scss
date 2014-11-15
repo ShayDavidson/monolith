@@ -1,0 +1,17 @@
+.zoomed-card-container {
+  $zoomed-card-width: $zoomed-card-height * $card-aspect-ratio;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -$zoomed-card-height / 2;
+  margin-left: -$zoomed-card-width / 2;
+  height: $zoomed-card-height;
+  background-color: gray;
+
+  .card {
+    @include box-shadow(0px 0px $zoomed-card-shadow-size $zoomed-card-shadow-blur rgba(0, 0, 0, $zoomed-card-shadow-alpha));
+    z-index: $z-index-zoomed-card;
+    height: $zoomed-card-height;
+    width: $zoomed-card-width;
+  }
+}

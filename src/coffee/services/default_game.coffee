@@ -39,7 +39,7 @@ class Monolith.Services.DefaultGame
 
     corpMainRow  = @row([decksArray, corpIce1, corpIce2])
     corpIdRow    = @row([corpId])
-    corpArchives = @row([corpTrash])
+    corpArchives = @row([corpTrash, corpIce3])
     corpRows     = @rows([@row(), corpIdRow, corpMainRow, corpArchives])
 
     # Hands
