@@ -6,10 +6,16 @@ class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
   BASE_WINDOW_HEIGHT = 750
 
   initialize: (options) ->
-    $(window).resize(=> @_setRowCardOffset())
+    $(window).resize(=>
+      @_setAspectRatio()
+      @_setRowCardOffset()
+    )
 
   onShow: ->
     @_setRowCardOffset()
+
+  _setAspectRatio: ->
+    @$el.css(width: @$el.height() * Monolith.Views.CardView.CARD_ASPECT_RATIO)
 
   _setRowCardOffset: ->
     side = @options.side

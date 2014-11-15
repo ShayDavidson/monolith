@@ -1,6 +1,6 @@
 class Monolith.Views.CardView extends Monolith.Views.BaseCardView
 
-  CARD_ASPECT_RATIO = 0.706
+  @CARD_ASPECT_RATIO = 0.706
 
   modelEvents:
     'change:faceUp': 'render'
@@ -19,7 +19,7 @@ class Monolith.Views.CardView extends Monolith.Views.BaseCardView
   # Helpers
 
   _setAspectRatio: ->
-    @$el.css(width: @$el.height() * CARD_ASPECT_RATIO)
+    @$el.css(width: @$el.height() * @constructor.CARD_ASPECT_RATIO)
 
   # Zooming
 

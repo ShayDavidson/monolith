@@ -32,8 +32,8 @@ class Monolith.Services.DefaultGame
 
     # Rows
 
-    runnerMainRow = @row([decksArray, runnerCard1])
-    runnerIdRow   = @row([runnerId])
+    runnerMainRow = @row([decksArray])
+    runnerIdRow   = @row([runnerId, runnerCard1])
     runnerTempRow = @row([runnerCard2])
     runnerRows    = @rows([runnerTempRow, runnerIdRow, runnerMainRow, @row()])
 
