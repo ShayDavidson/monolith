@@ -1,13 +1,11 @@
 class Monolith.Views.CardPileView extends Backbone.Marionette.CollectionView
-  className: 'row'
-  template: '#row-view-template'
+  className: 'pile'
   childView: Monolith.Views.CardView
 
   ROW_CARD_OFFSET = 0.3
   BASE_WINDOW_HEIGHT = 750
 
   initialize: (options) ->
-    @collection = options.model.get('cardsCollections')
     $(window).resize(=> @_setRowCardOffset())
 
   onShow: ->
