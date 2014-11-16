@@ -23,7 +23,8 @@ class Monolith.Services.DefaultGame
     runnerHand3 = @faceUpCard('04047') # Torch
     runnerHand4 = @faceUpCard('01034') # Diesel
     runnerCard1 = @faceUpCard('03036') # Monolith
-    runnerCard2 = @faceUpCard('02091', tokens: @tokensCollection([@tokens('credit', 3)])) # Kati Jones
+    runnerCard2 = @faceUpCard('02089') # Creeper
+    runnerCard3 = @faceUpCard('02091', tokens: @tokensCollection([@tokens('credit', 3)])) # Kati Jones
 
     # Decks
 
@@ -33,8 +34,8 @@ class Monolith.Services.DefaultGame
     # Rows
 
     runnerMainRow = @row([decksArray])
-    runnerIdRow   = @row([runnerId, runnerCard1])
-    runnerTempRow = @row([runnerCard2])
+    runnerIdRow   = @row([runnerId, runnerCard1, runnerCard2])
+    runnerTempRow = @row([runnerCard3])
     runnerRows    = @rows([runnerTempRow, runnerIdRow, runnerMainRow, @row()])
 
     corpMainRow  = @row([decksArray, corpIce1, corpIce2])
