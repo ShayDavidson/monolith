@@ -4,10 +4,8 @@
 ## TRANSLATION
 - "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
 - Corp translation.
-- Use same helpers as in DefaultGame.
 
 ## BOARD VIEW
-- Fix server/cards margins.
 - Hosted cards.
 - Scored agenda.
 - Removed-from-game cards.
