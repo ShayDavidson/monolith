@@ -21,7 +21,11 @@ class Monolith.Views.PileView extends Backbone.Marionette.CollectionView
     @_setRowCardOffset()
 
   _setAspectRatio: ->
-    @$el.css(width: @$el.height() * Monolith.Views.CardView.CARD_ASPECT_RATIO)
+    if @model.get('icePile')
+      width = @$el.height() * Monolith.Views.CardView.CARD_ASPECT_RATIO
+    else
+      width = @$el.height()
+    @$el.css(width: width)
 
   _setRowCardOffset: ->
     side = @options.side

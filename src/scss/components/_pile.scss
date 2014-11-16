@@ -1,4 +1,12 @@
 .pile {
+  position: relative;
+  width: auto; // determined in code.
+
+  &:not(:first-child) {
+    .left &  { margin-left:  $pile-margins; }
+    .right & { margin-right: $pile-margins; }
+  }
+
   &.non-ice {
     .left &  { @include transform(rotate(90deg));  }
     .right & { @include transform(rotate(-90deg)); }
