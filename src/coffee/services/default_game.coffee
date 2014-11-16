@@ -1,6 +1,7 @@
 class Monolith.Services.DefaultGame
+  _.extend this::, Monolith.BoardSugar::
 
-  @generate: ->
+  generate: ->
 
     # Corp
 

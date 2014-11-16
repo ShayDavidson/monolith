@@ -4,13 +4,16 @@
 ## TRANSLATION
 - "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
 - Corp translation.
+- Organize runner installed cards in appropriate piles and rows.
 
 ## BOARD VIEW
 - Hosted cards.
 - Scored agenda.
 - Removed-from-game cards.
+- Minimize rows for width as well?
 
 ## POLISH
+- Better game state.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
 - Remove console.logs from MD.
 - Markdown should be namespaced under services.
@@ -21,5 +24,4 @@
 - Code cleanup before shipping (behaviors and stuff maybe?).
 - Check compatability.
 - Cool README.
-
 
