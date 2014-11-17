@@ -49,9 +49,9 @@ class Monolith.Models.Markdown extends Backbone.Model
     @set('game', game)
 
     emptyRow = -> new Backbone.Collection([])
-    deckRow = ->
+    deckRow = =>
       decksArray = []
-      _.times(30, -> decksArray.push(@faceDownCard()))
+      _.times(30, => decksArray.push(@faceDownCard()))
       new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(decksArray))
 
     # CURRENT
@@ -75,9 +75,9 @@ class Monolith.Models.Markdown extends Backbone.Model
     runnerHeap = heapCards
     runnerHeapRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(runnerHeap))
 
-    runnerCredits = new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: runnerPlayer.get('credits'))
-    runnerTags = new Monolith.ViewModels.TokensViewModel(type: 'tag', amount: runnerPlayer.get('tags'))
-    runnerTokens = new Monolith.ViewModels.TokensViewCollection([runnerCredits, runnerTags])
+    runnerCredits = @tokens('credit', runnerPlayer.get('credits'))
+    runnerTags = @tokens('tag', runnerPlayer.get('tags'))
+    runnerTokens = @tokensCollection([runnerCredits, runnerTags])
 
     runnerIdentity = runnerPlayer.get('identity')
     if runnerIdentity
