@@ -8,8 +8,6 @@ class Monolith.Models.Markdown extends Backbone.Model
        installed
          cache
            7 virus counters
-         datasucker
-           2 virus
          dinosaurus
            yog.0
        grip
@@ -23,7 +21,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     viewModel: null
 
   cardToViewModel: (card, options = {}) ->
-    opts = _.extend({cardId: card.get('code'), faceUp: true}, options)
+    opts = _.extend({faceUp: true}, options)
     cardTokens = new Monolith.ViewModels.TokensViewCollection()
     if (amount = card.get('credits'))
       cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: amount ))
@@ -34,25 +32,16 @@ class Monolith.Models.Markdown extends Backbone.Model
     if (amount = card.get('genericTokens'))
       cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'generic', amount: amount ))
     opts.tokens = cardTokens unless cardTokens.length == 0
-    new Monolith.ViewModels.CardViewModel(opts)
-
-  cardToRow: (card) ->
-    cardPiles = [@cardToViewModel(card)]
-#    TODO: Return when hosting is working again
-#    if card.hostedCards().length > 0
-#      row = @cardToRow(card.hostedCards().first())
-#      cardsCollection.add(row.get('cards').models)
-    new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(cardPiles))
+    @faceUpCard(card.get('code'), opts)
 
   translate: ->
     game = Monolith.Markdown.MarkdownParser.parse(@get('text'))
     @set('game', game)
 
-    emptyRow = -> new Backbone.Collection([])
     deckRow = =>
       decksArray = []
       _.times(30, => decksArray.push(@faceDownCard()))
-      new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(decksArray))
+      @row([decksArray])
 
     # CURRENT
     currentCardModel = game.get('current')
@@ -73,7 +62,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     runnerPlayer.heap().forEach (card) =>
       heapCards.push(@cardToViewModel(card))
     runnerHeap = heapCards
-    runnerHeapRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(runnerHeap))
+    runnerHeapRow = @row([runnerHeap])
 
     runnerCredits = @tokens('credit', runnerPlayer.get('credits'))
     runnerTags = @tokens('tag', runnerPlayer.get('tags'))
@@ -81,13 +70,13 @@ class Monolith.Models.Markdown extends Backbone.Model
 
     runnerIdentity = runnerPlayer.get('identity')
     if runnerIdentity
-      runnerIDRow = new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection([@cardToViewModel(runnerIdentity)]))
+      runnerIDRow = @row([@cardToViewModel(runnerIdentity)])
     else
-      runnerIDRow = emptyRow()
+      runnerIDRow = @row()
 
     installedRows = []
     runnerPlayer.installed().forEach (card) =>
-      installedRows.push(@cardToRow(card))
+      installedRows.push(@row([@cardToViewModel(card)]))
 
     runnerRows = installedRows.concat([
       runnerIDRow,

@@ -13,6 +13,7 @@
 - Minimize rows for width as well?
 
 ## POLISH
+- User browserify/require.js to stop the loading problems.
 - Better game state.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
 - Remove console.logs from MD.
