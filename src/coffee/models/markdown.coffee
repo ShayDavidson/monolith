@@ -51,7 +51,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     emptyRow = -> new Backbone.Collection([])
     deckRow = ->
       decksArray = []
-      _.times(30, -> decksArray.push(new Monolith.ViewModels.CardViewModel()))
+      _.times(30, -> decksArray.push(@faceDownCard()))
       new Monolith.ViewModels.RowViewModel(cardPiles: new Backbone.Collection(decksArray))
 
     # CURRENT
