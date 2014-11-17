@@ -5,6 +5,7 @@ Monolith.ViewModels = {}
 Monolith.Views = {}
 Monolith.Services = {}
 Monolith.Markdown = {}
+Monolith.Mixins = {}
 
 $ ->
   Monolith.addRegions

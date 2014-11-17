@@ -1,4 +1,6 @@
 class Monolith.Models.Markdown extends Backbone.Model
+  _.extend this::, Monolith.Mixins.Sugar::
+
   defaults:
     text: """
        #runner @ kit

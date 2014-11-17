@@ -1,5 +1,5 @@
 class Monolith.Services.DefaultGame
-  _.extend this::, Monolith.BoardSugar::
+  _.extend this::, Monolith.Mixins.Sugar::
 
   generate: ->
 
