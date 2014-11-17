@@ -7,12 +7,13 @@
 - Organize runner installed cards in appropriate piles and rows.
 
 ## BOARD VIEW
+- Multiple installed cards.
 - Hosted cards.
 - Scored agenda.
 - Removed-from-game cards.
-- Minimize rows for width as well?
 
 ## POLISH
+- Restrict width size (no responsivness below X).
 - User browserify/require.js to stop the loading problems.
 - Better game state.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
