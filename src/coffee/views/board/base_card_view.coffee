@@ -4,6 +4,7 @@ class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
 
   regions:
     tokens: '.tokens-pile'
+    hostedCards: '.hosted-cards'
 
   ASPECT_RATIO_IMG = '/images/cards/aspect.png'
 
