@@ -24,13 +24,13 @@ class Monolith.Models.Markdown extends Backbone.Model
     opts = _.extend({faceUp: true}, options)
     cardTokens = new Monolith.ViewModels.TokensViewCollection()
     if (amount = card.get('credits'))
-      cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'credit', amount: amount ))
+      cardTokens.push(@tokens('credit', amount))
     if (amount = card.get('virusTokens'))
-      cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'virus', amount: amount ))
+      cardTokens.push(@tokens('virus', amount))
     if (amount = card.get('advancementTokens'))
-      cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'advancement', amount: amount ))
+      cardTokens.push(@tokens('advancement', amount))
     if (amount = card.get('genericTokens'))
-      cardTokens.push(new Monolith.ViewModels.TokensViewModel(type: 'generic', amount: amount ))
+      cardTokens.push(@tokens('generic', amount))
     opts.tokens = cardTokens unless cardTokens.length == 0
     @faceUpCard(card.get('code'), opts)
 
