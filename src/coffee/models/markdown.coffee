@@ -96,7 +96,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     ])
 
     @get('viewModel').get('runner').set(
-      hand: new Backbone.Collection(runnerHand)
-      rows: new Backbone.Collection(runnerRows)
+      hand: @cards(runnerHand)
+      rows: @rows(runnerRows)
       tokens: runnerTokens
     )
