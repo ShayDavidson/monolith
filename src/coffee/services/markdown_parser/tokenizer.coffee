@@ -68,7 +68,7 @@ class Monolith.Markdown.Tokenizer
       "remote",
       "ice"
     ].join("|")
-    regex = new RegExp("(#{contexts})(\s?@\s?(.*))?")
+    regex = new RegExp("(#{contexts})(\s?@\s?(.*))?$")
 
     result = @lineText.match(regex)
     if (result?)

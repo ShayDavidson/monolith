@@ -14,7 +14,7 @@ class Monolith.Markdown.CorpContext extends Monolith.Markdown.Context
       when Monolith.Markdown.ObjectType.Archives
         return
       when Monolith.Markdown.ObjectType.Remote
-        @corp.get("remotes").add(new Monolith.Models.Server())
+        @corp.remotes().add(new Monolith.Models.Server())
       when Monolith.Markdown.ObjectType.Scored
         return
       else
@@ -29,7 +29,7 @@ class Monolith.Markdown.CorpContext extends Monolith.Markdown.Context
       when Monolith.Markdown.ObjectType.Archives
         new Monolith.Markdown.ServerContext(@corp.archives())
       when Monolith.Markdown.ObjectType.Remote
-        new Monolith.Markdown.ServerContext(@corp.get("remotes").last())
+        new Monolith.Markdown.ServerContext(@corp.remotes().last())
       when Monolith.Markdown.ObjectType.Scored
         new Monolith.Markdown.CardCollectionContext(@corp.scored())
       else

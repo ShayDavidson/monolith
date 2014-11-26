@@ -1,5 +1,5 @@
 class Monolith.Models.Server extends Backbone.Model
-  default:
+  defaults: ->
     installed: new Monolith.Models.Cards()
     ice: new Monolith.Models.Cards()
 

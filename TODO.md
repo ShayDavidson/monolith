@@ -2,8 +2,8 @@
 - Facedown cards.
 
 ## TRANSLATION
-- "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
 - Corp translation.
+- "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
 - Organize runner installed cards in appropriate piles and rows.
 
 ## BOARD VIEW
