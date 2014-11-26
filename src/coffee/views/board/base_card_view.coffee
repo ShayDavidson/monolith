@@ -10,10 +10,14 @@ class Monolith.Views.BaseCardView extends Backbone.Marionette.LayoutView
 
   onRender: ->
     @_renderTokens()
+    @_renderHostedCards()
     @_renderPreloading()
 
   _renderTokens: ->
     @tokens.show(new Monolith.Views.TokensPileView(model: @model.get('tokens').sample())) if @model.has('tokens')
+
+  _renderHostedCards: ->
+    @hostedCards.show(new Monolith.Views.HostedCardsView(collection: @model.get('hosted'))) if @model.has('hosted')
 
   _renderPreloading: ->
     if @model.get('faceUp')

@@ -12,7 +12,7 @@ class Monolith.Services.DefaultGame
     corpHand4 = @faceUpCard('01099') # Scorched Earth
     corpHand5 = @faceUpCard('01090') # Tollbooth
     corpTrash = @faceUpCard('04040') # Restructure
-    corpIce1  = @faceUpCard('02110', ice: true) # Eli 1.0
+    corpIce1  = @faceUpCard('02110', ice: true, hosted: @cards([@faceUpCard('01012')])) # Eli 1.0
     corpIce2  = @faceDownCard(cardId: '01090', ice: true) # Tollbooth
     corpIce3  = @faceDownCard(ice: true)
 

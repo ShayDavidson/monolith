@@ -8,7 +8,6 @@
 
 ## BOARD VIEW
 - Multiple installed cards.
-- Hosted cards.
 - Scored agenda.
 - Removed-from-game cards.
 
