@@ -27,24 +27,4 @@
   .tokens-pile {
     position: absolute;
   }
-
-  .left & {
-    @include transform-origin(50%, 100%);
-
-    @for $i from 0 through 90 {
-      &.card-rotation-#{$i} {
-        @include transform(translate(-50%, 0) rotate(#{$i}deg));
-      }
-    }
-  }
-
-  .right & {
-    @include transform-origin(50%, 100%);
-
-    @for $i from 0 through 90 {
-      &.card-rotation-#{$i} {
-        @include transform(translate(50%, 0) rotate(-#{$i}deg));
-      }
-    }
-  }
 }
