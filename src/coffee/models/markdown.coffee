@@ -32,6 +32,7 @@ class Monolith.Models.Markdown extends Backbone.Model
     if (amount = card.get('genericTokens'))
       cardTokens.push(@tokens('generic', amount))
     opts.tokens = cardTokens unless cardTokens.length == 0
+    opts.hosted = @cards(card.hostedCards().map((card) => @cardToViewModel(card)))
     @faceUpCard(card.get('code'), opts)
 
   translate: ->
