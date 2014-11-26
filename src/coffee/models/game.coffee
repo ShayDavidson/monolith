@@ -6,9 +6,9 @@ class Monolith.Models.Game extends Backbone.Model
     current: null
 
   runner: ->
-    @set('runner', new Monolith.Models.Player()) unless @has('runner')
+    @set('runner', new Monolith.Models.Runner()) unless @has('runner')
     @get('runner')
 
   corp: ->
-    @set('corp', new Monolith.Models.Player()) unless @has('corp')
+    @set('corp', new Monolith.Models.Corp()) unless @has('corp')
     @get('corp')
