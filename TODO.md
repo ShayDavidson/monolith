@@ -13,6 +13,7 @@
 - Removed-from-game cards.
 
 ## POLISH
+- Fix zoomed card of hosted card.
 - Restrict width size (no responsivness below X).
 - User browserify/require.js to stop the loading problems.
 - Better game state.

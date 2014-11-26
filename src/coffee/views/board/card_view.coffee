@@ -27,7 +27,6 @@ class Monolith.Views.CardView extends Monolith.Views.BaseCardView
     @model.has('cardId')
 
   _zoomCard: (event) ->
-    event.stopPropagation()
     return unless @_canZoom()
     
     @isZooming = true
