@@ -1,5 +1,6 @@
 ## MARKDOWN
 - Facedown cards.
+- Legend / tutorial.
 
 ## TRANSLATION
 - "Stabilize" amount of rows - corp/runner should be equal, with minimum of 3-4.
@@ -16,7 +17,6 @@
 - User browserify/require.js to stop the loading problems.
 - Better game state.
 - Nice nav bar (with tab to open it?) - with title, info, md editor.
-- Remove console.logs from MD.
 - Markdown should be namespaced under services.
 - Better looking MD editor.
 - Trash and R&D row (icon).

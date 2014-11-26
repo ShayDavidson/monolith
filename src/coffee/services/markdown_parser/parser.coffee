@@ -31,7 +31,6 @@ class Monolith.Markdown.MarkdownParser
           if (line.indent == 0 && line.line[0] == "#")
             @_popToRoot()
 
-          console.log(line.line, @_getStackNames())
           @_currentContext().foundObject(objectDescriptor)
 
           if (objectDescriptor.type in [Monolith.Markdown.ObjectType.Runner, Monolith.Markdown.ObjectType.Corp, Monolith.Markdown.ObjectType.Current])
@@ -50,7 +49,6 @@ class Monolith.Markdown.MarkdownParser
     if matched then matched[0].length else 0
 
   _openContext: (objectDescriptor, indent) ->
-    console.log("Opening context", [objectDescriptor.lineText], "under", @_getStackNames())
     @_pushContext(@_currentContext().openContext(objectDescriptor), indent)
 
   _pushContext: (context, indent) ->
