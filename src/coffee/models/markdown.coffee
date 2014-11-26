@@ -3,19 +3,34 @@ class Monolith.Models.Markdown extends Backbone.Model
 
   defaults:
     text: """
-       #runner @ kit
-       3 credits
-       installed
-         cache
-           7 virus counters
-         dinosaurus
-           yog.0
-       grip
-         sure gamble
-         parasite
+#runner @ kit
+3 credits
+installed
+  cache
+    7 virus counters
+  dinosaurus
+    yog.0
+grip
+  sure gamble
+  parasite
 
-       #current
-       net celebrity
+#current
+net celebrity
+
+#corp @ kit
+4 credits
+4 bad pub
+hq
+   tollboth
+   hedge fund
+   ice
+      ice wall
+      curtain wall
+rnd @ 30
+remote
+   sundew
+   ice
+      rainbow
      """
     game: null
     viewModel: null

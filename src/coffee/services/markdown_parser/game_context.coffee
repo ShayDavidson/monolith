@@ -16,6 +16,8 @@ class Monolith.Markdown.GameContext extends Monolith.Markdown.Context
     switch (objectDescriptor.type)
       when Monolith.Markdown.ObjectType.Runner
         new Monolith.Markdown.RunnerContext(@game.runner())
+      when Monolith.Markdown.ObjectType.Corp
+        new Monolith.Markdown.CorpContext(@game.corp())
       when Monolith.Markdown.ObjectType.Current
         new Monolith.Markdown.CurrentContext(@game)
 

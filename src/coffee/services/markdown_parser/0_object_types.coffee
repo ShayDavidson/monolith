@@ -25,5 +25,12 @@ Monolith.Markdown.ObjectType = {
   Installed: "installed",
   Scored: "scored",
 
+  # corp
+  RND: "rnd",
+  HQ: "hq",
+  Archives: "archives",
+  Remote: "remote",
+  Ice: "ice",
+
   Card: "card"
 }

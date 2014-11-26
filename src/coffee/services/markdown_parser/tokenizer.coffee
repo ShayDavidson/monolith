@@ -56,11 +56,23 @@ class Monolith.Markdown.Tokenizer
       null
 
   _parseContext: ->
-    regex = /(grip|heap|stack|installed|scored)/
+    contexts = [
+      "grip",
+      "heap",
+      "stack",
+      "installed",
+      "scored",
+      "rnd",
+      "hq",
+      "archives",
+      "remote",
+      "ice"
+    ].join("|")
+    regex = new RegExp("(#{contexts})(\s?@\s?(.*))?$")
 
     result = @lineText.match(regex)
     if (result?)
-      @_makeDescriptor(result[1], null)
+      @_makeDescriptor(result[1], result[3])
     else
       null
 
