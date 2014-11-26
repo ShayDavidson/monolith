@@ -1,9 +1,12 @@
-.hosted-cards {
-  width: 100%;
-  height: 100%;
-  position: absolute;
+.card {
+  .hosted-cards {
+    width: 100%;
+    height: 100%;
+    position: absolute;
 
-  .card {
-
+    .card {
+      @include transform(rotate(90deg) scale($hosted-cards-scale));
+      @include box-shadow($hosted-cards-shadow);
+    }
   }
 }
