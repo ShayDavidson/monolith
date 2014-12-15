@@ -1,0 +1,49 @@
+//Match Snapshot
+//
+//each array (stolenAgendas, outOfPlay..) expects a valid card ID.
+{
+  "runner": {
+    "clicks": 4, //How many clicks left. Can be used to determine who's turn it is.
+    "credits": 5,
+    "brainDamage": 0,
+    "tags": 0,
+    "current": null,
+    "stolenAgendas": [],
+    "outOfPlay": [],
+    "grip": [],
+    "board": [],
+    "stash": [],
+    "heap": []
+  },
+  "corp": {
+    "clicks": 0,
+    "credits": 5,
+    "badPublicity": 0,
+    "current": null,
+    "scoredAgendas": [],
+    "outOfPlay": [],
+    "centralServers": {
+      "HQ": {
+        "upgrades": [],
+        "cards": [],
+        "ice": []
+      },
+      "archives": {
+        "upgrades": [],
+        "cards": [],
+        "ice": []
+      },
+      "RND": {
+        "upgrades": [],
+        "ice": [],
+        "cards": []
+      }
+    },
+    "remoteServers": [
+      {
+       "cards": [],
+       "ice": []
+      }
+    ]
+  }
+}
